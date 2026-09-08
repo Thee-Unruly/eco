@@ -1,0 +1,254 @@
+{
+  "dataset_name": "Zindi / FinMark Trust Financial Inclusion in Africa",
+  "total_records": 23524,
+  "countries": [
+    "Kenya",
+    "Rwanda",
+    "Tanzania",
+    "Uganda"
+  ],
+  "train_records": 18819,
+  "test_records": 4705,
+  "model_architecture": "GradientBoostingClassifier(n_estimators=140, max_depth=4, lr=0.08)",
+  "roc_auc": 0.8789,
+  "western_baseline_auc": 0.614,
+  "auc_uplift_points": 26.49,
+  "precision": 0.7094,
+  "recall": 0.3761,
+  "f1_score": 0.4916,
+  "accuracy": 0.8905,
+  "confusion_matrix": [
+    [
+      3941,
+      102
+    ],
+    [
+      413,
+      249
+    ]
+  ],
+  "top_features": [
+    {
+      "feature": "job_type_Formally employed Private",
+      "importance": 0.1157
+    },
+    {
+      "feature": "education_level_Tertiary education",
+      "importance": 0.1114
+    },
+    {
+      "feature": "age_of_respondent",
+      "importance": 0.1086
+    },
+    {
+      "feature": "job_type_Formally employed Government",
+      "importance": 0.1017
+    },
+    {
+      "feature": "education_level_Vocational/Specialised training",
+      "importance": 0.0997
+    },
+    {
+      "feature": "education_level_Secondary education",
+      "importance": 0.0567
+    },
+    {
+      "feature": "country_Tanzania",
+      "importance": 0.0563
+    },
+    {
+      "feature": "country_Kenya",
+      "importance": 0.0436
+    },
+    {
+      "feature": "cellphone_access_Yes",
+      "importance": 0.038
+    },
+    {
+      "feature": "cellphone_access_No",
+      "importance": 0.0304
+    },
+    {
+      "feature": "relationship_with_head_Head of Household",
+      "importance": 0.0291
+    },
+    {
+      "feature": "education_level_Primary education",
+      "importance": 0.0268
+    },
+    {
+      "feature": "household_size",
+      "importance": 0.0218
+    },
+    {
+      "feature": "country_Rwanda",
+      "importance": 0.0172
+    },
+    {
+      "feature": "location_type_Rural",
+      "importance": 0.017
+    }
+  ],
+  "roc_curve": [
+    {
+      "fpr": 0.0,
+      "tpr": 0.0,
+      "threshold": 1.0
+    },
+    {
+      "fpr": 0.0057,
+      "tpr": 0.1631,
+      "threshold": 0.8052
+    },
+    {
+      "fpr": 0.0111,
+      "tpr": 0.2492,
+      "threshold": 0.6876
+    },
+    {
+      "fpr": 0.019,
+      "tpr": 0.3369,
+      "threshold": 0.5514
+    },
+    {
+      "fpr": 0.0275,
+      "tpr": 0.3927,
+      "threshold": 0.483
+    },
+    {
+      "fpr": 0.0401,
+      "tpr": 0.4441,
+      "threshold": 0.4147
+    },
+    {
+      "fpr": 0.0507,
+      "tpr": 0.503,
+      "threshold": 0.3651
+    },
+    {
+      "fpr": 0.066,
+      "tpr": 0.5453,
+      "threshold": 0.3124
+    },
+    {
+      "fpr": 0.0782,
+      "tpr": 0.5967,
+      "threshold": 0.2798
+    },
+    {
+      "fpr": 0.1007,
+      "tpr": 0.6269,
+      "threshold": 0.2405
+    },
+    {
+      "fpr": 0.1195,
+      "tpr": 0.6662,
+      "threshold": 0.2097
+    },
+    {
+      "fpr": 0.1346,
+      "tpr": 0.7054,
+      "threshold": 0.192
+    },
+    {
+      "fpr": 0.1598,
+      "tpr": 0.7447,
+      "threshold": 0.1679
+    },
+    {
+      "fpr": 0.1845,
+      "tpr": 0.7719,
+      "threshold": 0.1491
+    },
+    {
+      "fpr": 0.2159,
+      "tpr": 0.8021,
+      "threshold": 0.1348
+    },
+    {
+      "fpr": 0.2374,
+      "tpr": 0.8278,
+      "threshold": 0.1244
+    },
+    {
+      "fpr": 0.2634,
+      "tpr": 0.8535,
+      "threshold": 0.1116
+    },
+    {
+      "fpr": 0.3107,
+      "tpr": 0.8746,
+      "threshold": 0.092
+    },
+    {
+      "fpr": 0.3418,
+      "tpr": 0.8943,
+      "threshold": 0.0866
+    },
+    {
+      "fpr": 0.368,
+      "tpr": 0.9154,
+      "threshold": 0.0801
+    },
+    {
+      "fpr": 0.4064,
+      "tpr": 0.9275,
+      "threshold": 0.0724
+    },
+    {
+      "fpr": 0.461,
+      "tpr": 0.935,
+      "threshold": 0.0606
+    },
+    {
+      "fpr": 0.5038,
+      "tpr": 0.9471,
+      "threshold": 0.0529
+    },
+    {
+      "fpr": 0.5395,
+      "tpr": 0.9668,
+      "threshold": 0.0475
+    },
+    {
+      "fpr": 0.584,
+      "tpr": 0.9713,
+      "threshold": 0.0413
+    },
+    {
+      "fpr": 0.6211,
+      "tpr": 0.9819,
+      "threshold": 0.0369
+    },
+    {
+      "fpr": 0.6935,
+      "tpr": 0.9894,
+      "threshold": 0.0267
+    },
+    {
+      "fpr": 0.7767,
+      "tpr": 0.994,
+      "threshold": 0.0151
+    },
+    {
+      "fpr": 0.8565,
+      "tpr": 0.9985,
+      "threshold": 0.0103
+    },
+    {
+      "fpr": 0.9248,
+      "tpr": 0.9985,
+      "threshold": 0.0074
+    },
+    {
+      "fpr": 0.9711,
+      "tpr": 1.0,
+      "threshold": 0.006
+    },
+    {
+      "fpr": 1.0,
+      "tpr": 1.0,
+      "threshold": 0.0
+    }
+  ]
+}

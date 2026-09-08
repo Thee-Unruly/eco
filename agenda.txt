@@ -1,0 +1,104 @@
+Got it — here's the complete guide, no file needed. The architecture diagram is above; here's how it maps to answers for all 23 questions from Round 1.
+
+**How to read this:** each question is marked with what kind of answer it needs —
+
+- 🔨 **Build & demo** — fully scriptable, I've given you the exact thing to build and show
+- 📋 **Real facts required** — needs true information from your firm; I've flagged what to gather, not invented it
+- 🔀 **Hybrid** — has a real-facts part and a fully buildable part
+
+---
+
+## SECTION 1 — Expertise of Firm
+
+*Round 1 left the firm's African standing and team unclear. This section wants names, dates, people in the room — not capability claims.*
+
+**Q1 📋 — African deployments list, live vs pilot, reference call**
+Build a one-page table now: Client | Country | Modules live | Go-live date | Production or pilot. Pre-clear one reference client for a call *before* the demo — "let me check" in the room reads as Round-1 vagueness again.
+
+**Q2 📋 — Partnerships/certs/regulator relationships, Francophone tax engine**
+List real partnerships with dates, not aspirational MOUs. If Francophone presence is genuinely thin, don't stretch it — pivot to showing the localization *framework* is built to configure fast (ties to Q14).
+
+**Q3 📋 — Team roster matches proposal, CVs**
+Confirm the actual roster in writing beforehand. Have CVs ready to hand over for any substitution. Get the named project lead physically in the room.
+
+**Q4 📋 — French-language capability, honest level**
+Honest self-rating per person — professional vs conversational vs none, no rounding up. If thin, propose a concrete mitigation (named bilingual lead, local partner) rather than downplaying it.
+
+**Q5 📋 — Security/compliance lead, actual African implementations**
+This person should be in the room and personally answer Q21-23 — don't let sales answer for them.
+
+---
+
+## SECTION 2 — Business Capabilities
+
+*This is the section you control most. Build the Client 360 data layer first — Q7, 8, 9, 10, 12, 13 all read from it, so it's the highest-leverage build.*
+
+**Q6 🔀 — Live fund-house transaction end to end**
+Facts needed: name a real connected fund house, or be honest it's simulated. Build: even a simulated flow should show every real step (feed → routing → settlement → reconciliation) with realistic timing — instant results look fake. If not live, say so and pivot to "here's the integration pattern and timeline."
+
+**Q7 🔨 — Same journey across web/mobile/branch, consistent data**
+Script: start a goal on web, pick it up mid-task on mobile, show branch RM view pulling the same in-flight state. Build on one Client 360 source of truth so "what carries over" answer is simply: everything, because there's one source. Be ready to name what genuinely doesn't carry over (e.g. scroll position) — naming the honest boundary is more credible than claiming perfect parity.
+
+**Q8 🔨 — 360 client view, refresh cadence**
+Show a visible "last refreshed" timestamp on screen, not just a verbal claim. Know your actual model cold (event-driven vs. batch every N minutes). Trace one data point live from source to appearing in the view.
+
+**Q9 🔨 — Live RM recommendation + audit trail**
+Build a transparent, versioned rules engine (not a black box) — e.g. "savings > X, no existing EDC, risk match → EDC, rule v1.3." Demo: trigger it on a real client, then immediately open the audit log entry it just wrote (rule ID, inputs, timestamp, output). A rules engine you can fully explain beats a vague AI claim you can't defend.
+
+**Q10 🔨 — Live goal + 2 scenarios, live recalculation**
+Build a deterministic projection engine wired directly to UI sliders. Script: create a retirement goal at 6% growth, drag to 8% live, watch the chart redraw. Cheap to build (pure math), hard to fake badly, very convincing live. Have a second scenario (higher contribution) pre-loaded.
+
+**Q11 🔀 — Robo-advisory with guardrails, market status**
+Build: Q9 + Q10 combined, wrapped in a *visible* guardrail layer — suitability check, disclosure trigger, hard block if recommendation exceeds stated risk tolerance. Make the guardrail visibly toggle-able so "switched on" is demonstrable. Facts needed: be straight about which markets (if any) have this live — this question exists specifically to catch overclaiming.
+
+**Q12 🔀 — AI personalization trained on African data, proof**
+Highest-risk question to bluff — they pre-empted vague answers explicitly. Realistic build: a segmentation/propensity model (not deep ML) trained on a documented synthetic-but-realistic African dataset you construct — income bands, product mix, behavior patterns modeled on your target markets. Write a one-page validation note. In the room, show the dataset schema and the note, not just an output number.
+
+**Q13 🔨 — Scenario depth, adjustable live**
+Extend the Q10 engine with a risk dimension — conservative/moderate/aggressive fan chart. Pre-build 3-4 adjustable levers (contribution, retirement age, risk profile, inflation) so you're never scrambling.
+
+**Q14 🔀 — Francophone config, live tax engine, markets**
+Build the tax engine as a configurable rules module (per-market bands as data, not hardcoded) — lets you honestly say the architecture supports fast per-market rollout even with one market live. Facts needed: name the actual live market(s), or show the config framework live and be direct that production is pending.
+
+---
+
+## SECTION 3 — Technical Capabilities
+
+*"Missing substantive technical discussion" was the exact Round 1 complaint. Bring the lead architect, let them talk in architect language.*
+
+**Q15 🔨 — Microservices vs monolith, CI/CD, versioning**
+Show a real service map (client-data, recommendation, simulation, notification — independently deployable). Bring real numbers: deploy frequency, an actual pipeline screenshot, your API versioning/deprecation scheme. If parts are genuinely monolithic (e.g. core ledger), say so — that's a defensible, common architecture. Claiming pure microservices when it isn't invites exactly this follow-up.
+
+**Q16 🔀 — API-first, Flexcube sandbox posting**
+Set up a real Flexcube sandbox connection beforehand if at all possible — Q19/20 mean this is checkable, so a claimed integration that can't survive poking gets caught. If not ready, be explicit it's simulated against the API spec with a scheduled sandbox date.
+
+**Q17 📋 — Cloud AND on-prem reference deployments**
+Needs a real reference for both. If you only have one, don't claim the other — explain what would be needed to prove out the missing model.
+
+**Q18 🔀 — Go-live plan, honest date, Ecobank dependencies**
+Build a real milestone plan (environment setup → integration → UAT → pilot → rollout) sized to your actual team. Name genuine Ecobank-side dependencies (sandbox access, data migration sign-off, regulatory approval). Give one honest date — this question literally asks for "the honest go-live date."
+
+**Q19 📋 — Sandbox access during/after session**
+Prepare this in advance: credentials, scoped environment, a short access guide ready to hand over on request. Scrambling to provision it live is itself a bad signal.
+
+**Q20 📋 — PoC readiness for Flexcube**
+Have a one-page PoC proposal ready: scope, timeline, resources needed from Ecobank, success criteria.
+
+---
+
+## SECTION 4 — Security & Compliance ⚠️ MUST RESOLVE
+
+*This scored Poor in Round 1 and is gating — a weak answer here can end the process regardless of how strong everything else is. Every answer needs a named artifact behind it. Do not present anything here that isn't true — this is the section a bank will independently verify.*
+
+**Q21 📋 — Actual pen-test report, findings, remediation, re-test evidence**
+Needs a real, current (≤12 month) report. If yours is older or has open findings, transparency is the credible path: show the real report, real remediation status, a concrete date for anything still open. If none exists, say so and commit to a date before the decision closes — recoverable. A fabricated report discovered later is not.
+
+**Q22 🔀 — Full security architecture, certs, data residency**
+Design now regardless of cert status: AES-256 at rest, TLS 1.2+ in transit, a named key-management approach, RBAC mapped to real platform roles, SSO/MFA on all admin/RM access, an append-only tamper-evident audit log — this is the same audit layer you're already building for Q9, doing double duty. Facts needed: real certification status and dates — never state a cert you don't hold; "ISO 27001 scheduled for [date], gap assessment complete" is a real, defensible answer. Data residency: give the actual current answer, don't overpromise flexibility you can't deliver.
+
+**Q23 🔀 — Breach response procedures, regulator-evidence SLA**
+Design a written incident-response runbook (detection → triage → containment → notification → evidence package) and commit to an SLA number you can actually hit under pressure. The audit log from Q9/Q22 is what makes the SLA credible — you're pointing to a real system, not a promise.
+
+---
+
+**Biggest risk in the room:** Section 4, because it's gating and hardest to fake convincingly. Second biggest: Q12, because they explicitly wrote the question to reject a vague answer. If you want, I can help you actually build the recommendation engine, simulation engine, or audit log next — those are the pieces with the best effort-to-credibility payoff before the demo.
