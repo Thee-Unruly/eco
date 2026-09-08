@@ -784,3 +784,66 @@ canvas {
   .grid-2col, .grid-client-view { grid-template-columns: 1fr; }
   .hud-content { grid-template-columns: 1fr; }
 }
+
+/* Priority AI Alerts */
+.priority-alert-item {
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 4px solid var(--ecobank-cyan);
+  transition: transform 0.15s, background 0.15s;
+}
+.priority-alert-item:hover {
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateX(2px);
+}
+.priority-alert-item.urgent {
+  border-left-color: var(--danger);
+  background: rgba(239, 68, 68, 0.08);
+}
+.priority-alert-item.warning {
+  border-left-color: var(--ecobank-gold);
+  background: rgba(245, 158, 11, 0.08);
+}
+.priority-alert-item.info {
+  border-left-color: var(--ecobank-cyan);
+  background: rgba(0, 163, 180, 0.08);
+}
+
+.alert-badge {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.alert-badge.urgent { background: rgba(239, 68, 68, 0.2); color: var(--danger); }
+.alert-badge.warning { background: rgba(245, 158, 11, 0.2); color: var(--ecobank-gold); }
+.alert-badge.info { background: rgba(0, 163, 180, 0.2); color: var(--ecobank-cyan); }
+
+/* RM Advisory Co-Pilot Elements */
+.copilot-metric-pill {
+  background: rgba(0, 163, 180, 0.12);
+  border: 1px solid rgba(0, 163, 180, 0.3);
+  padding: 6px 12px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--ecobank-cyan);
+  font-weight: 600;
+}
+.copilot-script-quote {
+  font-style: italic;
+  color: #fff;
+  border-left: 3px solid var(--ecobank-gold);
+  padding-left: 12px;
+  margin: 10px 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+

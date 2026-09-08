@@ -152,7 +152,66 @@
             </div>
             <div style="background: rgba(0,0,0,0.25); padding: 12px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
               <div style="font-size: 11px; color: var(--text-muted);">Last Sync Event</div>
-              <div id="c360-sync-trait" style="font-size: 13px; font-weight: 600; color: var(--success); margin-top: 4px;">2 seconds ago (Kafka CDC / Flexcube 14.7)</div>
+          <!-- AI Client Health & Proactive Alert Section (Zero-Hardcoding Dynamic Math) -->
+          <div style="margin-top: 20px; border-top: 1px solid var(--border-subtle); padding-top: 16px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <h4 style="font-size: 14px; color: var(--ecobank-cyan); margin: 0; display: flex; align-items: center; gap: 8px;">
+                <span>AI Client Health & Retention Engine</span>
+                <span id="c360-health-status-badge" class="tag-q" style="background: rgba(245, 158, 11, 0.15); border-color: var(--ecobank-gold); color: var(--ecobank-gold);">CALCULATING...</span>
+              </h4>
+              <span style="font-size: 11px; color: var(--text-muted);">Real Central Bank Inflation Benchmarks</span>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 220px 1fr; gap: 16px; margin-bottom: 16px;">
+              <!-- Score Gauge -->
+              <div style="background: rgba(0,0,0,0.3); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 14px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <div style="position: relative; width: 100px; height: 100px;">
+                  <svg viewBox="0 0 36 36" style="width: 100%; height: 100%; transform: rotate(-90deg);">
+                    <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="3.5" />
+                    <path id="health-gauge-circle" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="var(--ecobank-gold)" stroke-dasharray="53, 100" stroke-width="3.5" stroke-linecap="round" />
+                  </svg>
+                  <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+                    <div id="c360-health-score-val" style="font-size: 24px; font-weight: 800; color: #fff; line-height: 1;">53</div>
+                    <div style="font-size: 9px; color: var(--text-muted); text-transform: uppercase; margin-top: 2px;">/ 100 Health</div>
+                  </div>
+                </div>
+                <div id="c360-health-summary-text" style="font-size: 11px; color: var(--text-secondary); margin-top: 6px;">Inflation Drag Active</div>
+              </div>
+
+              <!-- Component Breakdown -->
+              <div style="display: flex; flex-direction: column; gap: 8px; justify-content: center;">
+                <div style="background: rgba(0,0,0,0.25); padding: 8px 12px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <div style="font-size: 11px; font-weight: 600; color: #fff;">Real Inflation Cash Drag</div>
+                    <div style="font-size: 10px; color: var(--danger);">Purchasing power lost monthly in CASA</div>
+                  </div>
+                  <div id="c360-inflation-drag-stat" style="text-align: right; font-weight: 700; color: var(--danger); font-size: 12px;">-GHS 8,730/mo</div>
+                </div>
+
+                <div style="background: rgba(0,0,0,0.25); padding: 8px 12px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <div style="font-size: 11px; font-weight: 600; color: #fff;">Capital Flight / Maturity Risk</div>
+                    <div style="font-size: 10px; color: var(--text-secondary);">Sovereign T-Bill roll-over window</div>
+                  </div>
+                  <div id="c360-flight-stat" style="text-align: right; font-weight: 700; color: var(--ecobank-gold); font-size: 12px;">Matures in 4 Days</div>
+                </div>
+
+                <div style="background: rgba(0,0,0,0.25); padding: 8px 12px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <div style="font-size: 11px; font-weight: 600; color: #fff;">Annual Yield Uplift Opportunity</div>
+                    <div style="font-size: 10px; color: var(--text-muted);">Reallocating CASA into fixed income</div>
+                  </div>
+                  <div id="c360-uplift-stat" style="text-align: right; font-weight: 700; color: var(--success); font-size: 12px;">+GHS 114,291/yr</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Proactive Priority Alerts Container -->
+            <div style="margin-bottom: 12px;">
+              <div style="font-size: 11px; font-weight: 700; color: #fff; margin-bottom: 6px;">🔔 Proactive RM Priority Action Alerts:</div>
+              <div id="c360-alerts-container" style="display: flex; flex-direction: column; gap: 6px;">
+                <!-- Populated dynamically via API / calculation -->
+              </div>
             </div>
           </div>
 
@@ -179,6 +238,24 @@
           <button id="btn-run-recommendation" class="btn-primary">
             <span>⚡ Run AI Recommendation Engine</span>
           </button>
+        </div>
+      </div>
+
+      <!-- RM Advisory Co-Pilot & Learning Assistant Panel -->
+      <div id="rm-copilot-panel" style="margin-bottom: 20px; background: rgba(0, 26, 44, 0.6); border: 1px solid var(--ecobank-cyan); border-radius: var(--radius-md); padding: 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 20px;">🎓</span>
+            <div>
+              <h4 style="color: #fff; font-size: 14px; margin: 0; font-weight: 700;">RM Advisory Co-Pilot & Learning Assistant</h4>
+              <div style="font-size: 11px; color: var(--text-muted);">Dynamic client objection handling & financial yield differential pitch for Relationship Managers</div>
+            </div>
+          </div>
+          <span class="tag-q" style="background: rgba(0, 163, 180, 0.15); border-color: var(--ecobank-cyan); color: var(--ecobank-cyan);">Live Advisor Coach</span>
+        </div>
+
+        <div id="rm-copilot-content" style="background: rgba(0,0,0,0.3); border-radius: var(--radius-sm); padding: 12px; border: 1px solid var(--border-subtle);">
+          <!-- Dynamically populated based on active client & product -->
         </div>
       </div>
 
@@ -722,7 +799,12 @@
           </h2>
           <div class="pane-desc">SHA-256 hash-chained event blocks for all AI recommendations, suitability overrides, and trade routing. Directly solves Section 4 Security gating requirements.</div>
         </div>
-        <div style="display: flex; gap: 8px;">
+        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+          <select id="audit-template-select" style="background: #060B10; color: #fff; border: 1px solid var(--border-subtle); padding: 7px 12px; border-radius: var(--radius-sm); font-size: 12px;">
+            <option value="sec_ghana">SEC Ghana Form ADV-W (Directive 34)</option>
+            <option value="bceao_waemu">BCEAO / CREPMF WAEMU Art. 12 (IRVM)</option>
+            <option value="bog_core">Bank of Ghana Core Audit (Notice 2020/02)</option>
+          </select>
           <button id="btn-verify-audit-chain" class="btn-primary">
             <span>✓ Verify Cryptographic Chain Integrity</span>
           </button>
