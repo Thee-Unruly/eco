@@ -82,18 +82,103 @@
 > 
 > *• **Annual Yield Uplift Opportunity: +GHS 114,291 per year.** If the RM convinces Kwame to move that idle CASA cash and T-Bill proceeds into Ecobank's Fixed Income Trust yielding 26.4%, Kwame earns over **114,000 Cedis in extra income annually**. The RM doesn't have to calculate this on a spreadsheet — the AI already wrote the business case."*
 
+### Scene 4: 🔔 Proactive RM Priority Action Alerts
+👆 *Scroll down slightly below the Health Gauge to the **"Proactive RM Priority Action Alerts"** section.*
+
+🗣️ **SAY THIS:**
+> *"Directly below the health gauge, the AI generates proactive, event-driven intervention triggers. Instead of an RM having to manually scan 200 client accounts, the system flags two urgent commercial opportunities:
+> 
+> 1. **`SEVERE INFLATION DRAG` Alert (Red Border):**
+>    *'Client holds GHS 485,000 in low-yielding CASA (1.5%), losing GHS 8,730 monthly against Ghana's 23.1% inflation. Reallocating to benchmark assets yields +GHS 48,555/year.'*
+>    Notice the direct action button: **`[Execute EDC Rebalance →]`**.
+> 
+> 2. **`MATURITY IN 4 DAYS` Alert (Amber Border):**
+>    *'Bank of Ghana / Sovereign 91-day paper matures in 4 days. High deposit disintermediation risk to competitor asset managers without preemptive roll-over outreach.'*
+>    Notice the call-to-action: **`[Initiate EDC-FIT Roll-Over →]`**.
+> 
+> This turns the Relationship Manager from a reactive order-taker into a proactive, high-touch wealth advisor."*
+
 ---
 
-### 💥 LIVE VALIDATION MOMENT 1: The Live Balance Stress-Test
-👆 *Point to the top-right of Kwame's card and click the button: **`✎ Edit Client Balances`**.*
+### Scene 5: The 🔬 What-If Scenario Scratchpad (Bottom of Tab 1)
+👆 *Scroll to the very bottom of Kwame's card, pointing to the **"🔬 What-If Scenario Scratchpad"** panel.*
+
+🗣️ **SAY THIS:**
+> *"Now look at the bottom section of this card: the **🔬 What-If Scenario Scratchpad**.
+> 
+> In wealth management, an RM does not want to alter a client's formal core banking records every time they have an exploratory phone call. They need a fast, non-destructive sandbox to model 'what-if' possibilities live with the client.
+> 
+> We provide two interactive levers right here at the bottom of Tab 1:
+> 
+> **Lever 1: Reallocate CASA → EDC Fixed Income (Yield Optimization):**
+> *Watch what happens when I drag this slider."*
+
+👆 *Drag the **"Reallocate CASA → EDC Fixed Income"** slider from `0%` to `60%`.*
+*(The Reallocation Amount displays `GHS 291,000`, and green impact text appears below).*
+
+🗣️ **SAY THIS:**
+> *"Look at the live calculation:
+> - Reallocation Amount: **GHS 291,000** (exactly 60% of Kwame's GHS 485,000 CASA).
+> - Green impact text: **`+GHS 72,459/yr additional yield · GHS 194,000 remains liquid`**.
+> 
+> How is that calculated?
+> Ghana CASA pays ~1.5% interest. The EDC Fixed Income Trust yields **26.4%**.
+> That is a **24.9% annual yield spread**!
+> Moving 291,000 Cedis into EDC-FIT creates an extra **72,459 Cedis every single year** in net earnings.
+> 
+> And look at what is written next to it: **'GHS 194,000 remains liquid'**.
+> This immediately eliminates the client's psychological objection of locking away emergency cash. The RM can tell Kwame: *'Kwame, you keep nearly 200,000 Cedis liquid for everyday business, while the rest works for you.'*
+> 
+> **Lever 2: Adjust Client Risk Tolerance (KYC Profiling Simulation):**
+> *Now look at the right slider. Currently Kwame's KYC score is 54 / 100 (Moderate-Balanced). Watch what happens if Kwame's risk appetite increases."*
+
+👆 *Drag the **"Adjust Client Risk Tolerance"** slider up to `78`.*
+*(The label updates to `78 / 100 — Growth / Aggressive`, and a gold indicator badge appears).*
+
+🗣️ **SAY THIS:**
+> *"Look at the badge in gold:
+> **`▲ Risk up 24 pts — unlocks Frontier Alpha if score reaches 75+`**!
+> 
+> The system instantly signals that at an aggressive risk score of 78, Kwame now crosses the regulatory suitability threshold for high-yield private equity and Pan-African equity strategies.
+> 
+> Now watch if I drag it down to `35`:"*
+
+👆 *Drag the slider down to `35`.*
+*(The label updates to `35 / 100 — Conservative`, and a cyan indicator appears).*
+
+🗣️ **SAY THIS:**
+> *"The badge instantly flips to:
+> **`▼ Risk down 19 pts — narrows to capital-preservation products only`**.
+> 
+> Suitability gates immediately constrain the catalog to sovereign treasury paper."*
+
+👆 *Move the risk slider back to `54`.*
+👆 *Point to the **"Projected Scenario Outcome"** banner that appeared below the sliders.*
+
+🗣️ **SAY THIS:**
+> *"Now look at the banner that just appeared:
+> 
+> **`Projected Scenario Outcome:`**
+> *'Reallocating **GHS 291,000** into EDC-FIT generates **+GHS 72,459/yr** in additional net yield. With a risk score of **54/100 (Moderate-Balanced)**, EDC Fixed Income Trust is the optimal reallocation vehicle.'*
+> 
+> Look at the small footnote at the bottom:
+> **'This is a hypothetical scenario — no data has been saved.'**
+> 
+> The RM can pitch this over the phone with 100% confidence. It does not touch Oracle Flexcube, it does not write fake ledger entries, and it does not trigger premature compliance audits. It is a genuine, non-destructive advisory scratchpad."*
+
+---
+
+### 💥 LIVE VALIDATION MOMENT 1: The Live Balance Stress-Test (Core Record Mutation)
+👆 *Now scroll back to the top-right of Kwame's card and click the button: **`✎ Edit Client Balances`**.*
 *(The button turns blue with `✓ Done Editing`, and a pulsing gold badge `✎ LIVE EDIT MODE` appears next to Kwame's name).*
 
 🗣️ **SAY THIS:**
-> *"Now, the evaluators might ask: 'What happens if we change the client's balances? Is this hardcoded or does the entire system recalculate dynamically?' Let's test it live.*
+> *"Now, the evaluators might ask: 'The scratchpad is great for hypothetical phone calls. But what happens if Kwame actually wires money or we want to stress-test the core banking ledger itself? Does the rest of the platform recalculate dynamically?'
 > 
-> *Let's simulate an evaluator challenge: **What if Kwame only has GHS 90,000 in CASA, and already has GHS 500 invested with EDC?***
+> Let's test it live.
+> Let's simulate an evaluator challenge: **What if Kwame only has GHS 90,000 in CASA, and already has GHS 500 invested with EDC?**
 > 
-> *Watch what happens:*
+> Watch what happens:*
 > 
 > *First, I'll double-click Kwame's CASA balance of GHS 485,000."*
 
@@ -112,11 +197,12 @@
 > 1. **EDC Sub-Label Updated**: It instantly flipped from red 'Cross-Sell White Space' to green **'Active Account (GHS 500)'**!
 > 2. **The Health Gauge Animated**: The needle adjusted dynamically!
 > 3. **The Inflation Cash Drag Dropped**: From -8,730 Cedis down to -1,620 Cedis per month, because his idle cash is significantly lower.
+> 4. **The Bottom Scratchpad Recalculated**: If you look at the bottom scratchpad, its base CASA is now 90k instead of 485k!
 > 
 > Now, let's look at Tab 2 to see how the AI recommendation engine reacted to these exact numbers."*
 
 👆 *Click **`✓ Done Editing`**.*
-👆 *Click **`AI Recommendation & XAI`** (Tab 2).*
+👆 *Scroll to the bottom of the card and click the big button: **`Proceed to AI Recommendation Engine (Q9) →`** (or click Tab 2 in the top bar).*
 *(Tab 2 automatically evaluates and renders the updated recommendations — no need to click anything else!)*
 
 ---
@@ -212,6 +298,11 @@
 
 **Probe 2: "Why did the propensity score drop from 94% to 59% when CASA was 90k?"**
 > 🗣️ *"Because the hybrid engine penalizes propensity when deterministic compliance criteria are unmet. When a client does not meet the minimum liquidity threshold, the system reflects the compliance friction rather than blindly pretending the client is an optimal candidate."*
+
+**Probe 3: "How does the What-If Scenario Scratchpad on Tab 1 differ from the Goal Simulation on Tab 3?"**
+> 🗣️ *"They serve two completely different, vital stages of client wealth advisory:
+> - **Tab 1 What-If Scratchpad (Tactical Conversation Sandbox):** Designed for the RM on a live phone call to test immediate balance-sheet shifts — such as moving 60% of idle CASA into 26.4% EDC-FIT or simulating a KYC risk shift — with zero database mutation. It provides instant, spoken talking points and calculates net annual yield gains while preserving a liquid cushion.
+> - **Tab 3 Goal Simulation & Fan Chart (Strategic Multi-Year Wealth Planning):** Designed for long-term lifecycle accumulation over 10 to 25 years. It executes 500 stochastic Monte Carlo market iterations (P10 floor, P50 median, P90 upside) benchmarked against statutory withholding tax treatments and central bank inflation decay."*
 
 ---
 
@@ -484,3 +575,4 @@
 | **SEC Ghana Reg 34** | Investor Protection Directive | Statutory Ghanaian capital markets regulation mandating strict risk suitability verification prior to executing client investments. |
 | **WAEMU / BCEAO / CREPMF** | Francophone West Africa Authorities | WAEMU is the 8-nation economic bloc; BCEAO is the regional central bank; CREPMF is the securities and capital markets regulator. |
 | **ROC-AUC (0.8789)** | Receiver Operating Characteristic | Standard machine learning benchmark. 0.5 = random coin toss; 1.0 = perfect model. Our 0.8789 is top-tier; generic Western models score 0.6140 on African data. |
+| **What-If Scratchpad** | Advisory Hypothetical Sandbox | Non-destructive interactive sliders at the bottom of Tab 1. Lets RMs model CASA reallocation yield spreads (26.4% vs 1.5%) and KYC risk tolerance changes live during client calls without saving data or polluting core banking audit ledgers. |
