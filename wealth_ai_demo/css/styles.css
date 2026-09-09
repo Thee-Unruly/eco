@@ -972,3 +972,72 @@ canvas {
   color: var(--text-muted);
 }
 
+
+/* ==========================================================================
+   Dynamic Enhancement Modules — live_sandbox.js & client_editor.js
+   ========================================================================== */
+
+/* ── Live Sandbox: Auto-run field flash ── */
+#inference-form select,
+#inference-form input {
+  transition: border-color 0.3s ease;
+}
+
+/* ── Comparison Panel Delta Rows ── */
+#sandbox-delta-rows > div {
+  animation: fadeInRow 0.25s ease forwards;
+}
+
+@keyframes fadeInRow {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Inline Edit Mode: editable stat values ── */
+.stat-value[data-editor-bound="1"] {
+  transition: border-bottom 0.2s ease, color 0.3s ease;
+}
+
+/* ── Edit Mode Badge pulse ── */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.0); }
+  50%       { box-shadow: 0 0 8px 3px rgba(245, 158, 11, 0.25); }
+}
+
+/* ── What-If Panel sliders ── */
+#what-if-panel input[type="range"] {
+  height: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#what-if-panel input[type="range"]:hover {
+  opacity: 0.9;
+}
+
+/* ── What-If outcome banner entry animation ── */
+#whatif-outcome-banner {
+  animation: slideInUp 0.3s ease forwards;
+}
+
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Comparison panel scenario story ── */
+#sandbox-scenario-story {
+  animation: fadeInRow 0.35s ease forwards;
+}
+
+/* ── Edit toggle button ── */
+#btn-edit-mode-toggle {
+  transition: all 0.2s ease;
+}
+
+/* ── Score gauge animated fill ── */
+#health-gauge-circle {
+  transition: stroke-dasharray 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              stroke 0.5s ease;
+}
+

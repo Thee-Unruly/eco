@@ -1583,6 +1583,24 @@ document.addEventListener('DOMContentLoaded', () => {
     switchTab(q.action_tab);
   }
 
+  // ── Bridge APIs for live_sandbox.js & client_editor.js ─────────────────────
+  // Expose selected client accessor
+  window._getSelectedClient = () => state.selectedClient;
+
+  // Expose health re-trigger (so client_editor.js can call it after an inline edit)
+  window._triggerClientHealthUpdate = (client) => {
+    const prevScore = parseInt(document.getElementById('c360-health-score-val')?.textContent) || 50;
+    updateClientHealthAndAlerts(client).then(() => {
+      const newScore = parseInt(document.getElementById('c360-health-score-val')?.textContent) || 50;
+      if (typeof window._animateHealthScore === 'function' && prevScore !== newScore) {
+        window._animateHealthScore(prevScore, newScore);
+      }
+    });
+  };
+
+  // Expose inference renderer publicly so live_sandbox.js auto-run can update the result box
+  window.renderInferenceOutputPublic = renderInferenceOutput;
+
   // Initial Boot
   renderClientSelector();
   renderClientDetails();
@@ -1591,8 +1609,6 @@ document.addEventListener('DOMContentLoaded', () => {
   updateSimulationFromInputs();
   updateGuardrailUI();
   renderRoboMarketStatus();
-  runTaxCalculation();
-  renderAuditLogTerminal();
   initRealDatasetAndMLLab();
   renderPresenterHUD();
 });

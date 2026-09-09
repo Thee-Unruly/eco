@@ -55,14 +55,8 @@
       <span data-i18n="nav_dataset">African Market AI Evidence</span>
       <span class="tab-badge">Q12</span>
     </button>
-    <button class="tab-btn" data-tab="tab-tax">
-      <span data-i18n="nav_tax">Francophone Tax Engine</span>
-      <span class="tab-badge">Q14</span>
-    </button>
-    <button class="tab-btn" data-tab="tab-audit">
-      <span data-i18n="nav_audit">Cryptographic Audit Vault</span>
-      <span class="tab-badge">Q21-Q23</span>
-    </button>
+
+
   </nav>
 
   <!-- Main Content Body -->
@@ -751,132 +745,6 @@
       </div>
     </section>
 
-    <!-- ==================== TAB 6: FRANCOPHONE TAX ENGINE (Q14) ==================== -->
-    <section id="tab-tax" class="tab-pane">
-      <div class="pane-header">
-        <div class="pane-title-area">
-          <h2>
-            <span>Francophone African Config & Live Local Tax Engine</span>
-            <span class="tag-q">Q14 Focus</span>
-          </h2>
-          <div class="pane-desc">Configurable rules-based withholding tax engine supporting WAEMU / UEMOA (Côte d'Ivoire, Senegal) and Ghana GRA requirements without code changes.</div>
-        </div>
-        <div>
-          <button class="btn-secondary" onclick="document.getElementById('btn-lang-toggle').click();">
-            <span>Traduire en Français 🇫🇷</span>
-          </button>
-        </div>
-      </div>
-
-      <div class="grid-2col">
-        <!-- Left: Interactive Tax Calculation Sandbox -->
-        <div class="card">
-          <div class="card-title">Live Tax Deduction & Net Yield Calculator</div>
-
-          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 16px;">
-            <div>
-              <label style="display: block; font-size: 12px; color: var(--text-secondary); margin-bottom: 6px;">Tax Jurisdiction:</label>
-              <select id="tax-country-select" style="width: 100%; background: #060B10; color: #fff; border: 1px solid var(--border-subtle); padding: 10px; border-radius: var(--radius-sm); font-size: 13px;">
-                <option value="CI_WAEMU">Côte d'Ivoire / WAEMU (Direction Générale des Impôts)</option>
-                <option value="GH">Ghana (Ghana Revenue Authority - GRA)</option>
-                <option value="NG">Nigeria (Federal Inland Revenue Service - FIRS)</option>
-              </select>
-            </div>
-            <div>
-              <label style="display: block; font-size: 12px; color: var(--text-secondary); margin-bottom: 6px;">Gross Investment Yield (%):</label>
-              <input type="number" id="tax-gross-yield" value="12.5" step="0.1" style="width: 100%; background: #060B10; color: #fff; border: 1px solid var(--border-subtle); padding: 10px; border-radius: var(--radius-sm); font-size: 13px;">
-            </div>
-          </div>
-
-          <div style="margin-bottom: 16px;">
-            <label style="display: block; font-size: 12px; color: var(--text-secondary); margin-bottom: 6px;">Asset Class & Instrument:</label>
-            <select id="tax-asset-type" style="width: 100%; background: #060B10; color: #fff; border: 1px solid var(--border-subtle); padding: 10px; border-radius: var(--radius-sm); font-size: 13px;">
-              <option value="Obligations d'Entreprises Privées">Obligations Privées / Corporate Bonds (IRVM 2%)</option>
-              <option value="Obligations d'État UEMOA">Obligations d'État / Sovereign BTP (Exonération Totale 0%)</option>
-              <option value="Actions cotées BRVM & Dividendes">Actions Cotées BRVM (IRVM 7%)</option>
-              <option value="Comptes à Terme / Dépôts Rémunérés">Comptes à Terme / Dépôts (IRC 10%)</option>
-            </select>
-          </div>
-
-          <button id="btn-calc-tax" class="btn-primary" style="width: 100%; justify-content: center;">
-            Calculate Statutory Net Return
-          </button>
-
-          <div id="tax-calculation-output">
-            <!-- Rendered dynamically -->
-          </div>
-        </div>
-
-        <!-- Right: Configurable Tax Rules Registry -->
-        <div class="card">
-          <div class="card-title">
-            <span>Jurisdiction Statutory Rules (JSON Config as Data)</span>
-            <span style="font-size: 11px; color: var(--ecobank-cyan);">Live Editable</span>
-          </div>
-
-          <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 12px;">
-            Per-market regulatory differences are isolated into JSON rule tables. Demonstrates that launching a new WAEMU or CEMAC affiliate requires 0 core code changes:
-          </p>
-
-          <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 12px;">
-            <thead>
-              <tr style="border-bottom: 1px solid var(--border-subtle); color: var(--text-muted);">
-                <th style="padding: 8px;">Asset Category</th>
-                <th style="padding: 8px;">Withholding Rate</th>
-                <th style="padding: 8px;">Statutory Legal Basis</th>
-                <th style="padding: 8px;">Action</th>
-              </tr>
-            </thead>
-            <tbody id="tax-rules-tbody">
-              <!-- Rendered dynamically -->
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== TAB 7: CRYPTOGRAPHIC AUDIT VAULT (Q21-Q23) ==================== -->
-    <section id="tab-audit" class="tab-pane">
-      <div class="pane-header">
-        <div class="pane-title-area">
-          <h2>
-            <span>Cryptographic Tamper-Evident Audit Vault</span>
-            <span class="tag-q">Q9, Q21-Q23 Security</span>
-          </h2>
-          <div class="pane-desc">SHA-256 hash-chained event blocks for all AI recommendations, suitability overrides, and trade routing. Directly solves Section 4 Security gating requirements.</div>
-        </div>
-        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
-          <select id="audit-template-select" style="background: #060B10; color: #fff; border: 1px solid var(--border-subtle); padding: 7px 12px; border-radius: var(--radius-sm); font-size: 12px;">
-            <option value="sec_ghana">SEC Ghana Form ADV-W (Directive 34)</option>
-            <option value="bceao_waemu">BCEAO / CREPMF WAEMU Art. 12 (IRVM)</option>
-            <option value="bog_core">Bank of Ghana Core Audit (Notice 2020/02)</option>
-          </select>
-          <button id="btn-verify-audit-chain" class="btn-primary">
-            <span>✓ Verify Cryptographic Chain Integrity</span>
-          </button>
-          <button id="btn-tamper-attack-sim" class="btn-danger">
-            <span>🚨 Simulate Tamper Attack</span>
-          </button>
-          <button id="btn-export-sla-dossier" class="btn-secondary">
-            <span>📥 Export Regulator Dossier (SLA Test)</span>
-          </button>
-        </div>
-      </div>
-
-      <div id="audit-verification-banner" style="display: none; margin-bottom: 16px;"></div>
-
-      <div class="card">
-        <div class="card-title">
-          <span>Immutable Audit Ledger Blocks</span>
-          <span id="audit-total-blocks" class="tag-q" style="background: rgba(0, 163, 180, 0.15);">3 Blocks Chained</span>
-        </div>
-
-        <div id="audit-events-stream" class="audit-terminal">
-          <!-- Rendered dynamically -->
-        </div>
-      </div>
-    </section>
-
   </main>
 
   <!-- Presenter Heads-Up Display (HUD) - Docked at Bottom -->
@@ -1066,5 +934,8 @@
   <script src="js/tax_engine.js"></script>
   <script src="js/presenter_hud.js"></script>
   <script src="js/app.js"></script>
+  <!-- Dynamic Enhancement Modules (loaded after app.js so they can hook into its state) -->
+  <script src="js/live_sandbox.js"></script>
+  <script src="js/client_editor.js"></script>
 </body>
 </html>
