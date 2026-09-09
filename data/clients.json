@@ -153,5 +153,27 @@
       "risk_profile": "Moderate-Balanced (Score: 68/100)",
       "last_refreshed": "Just now (Live Dynamic Creation)"
     }
+  },
+  {
+    "client_id": "ECO-GH-42440",
+    "name": "Dr. Kojo Boakye",
+    "country": "Ghana",
+    "city": "Accra",
+    "currency": "GHS",
+    "segment": "Corporate Executive Wealth",
+    "relationship_manager": "Kofi Addo (Accra High Street)",
+    "accounts": {
+      "casa_balance": 750000.0,
+      "domiciliary_usd": 50000.0,
+      "momo_float_monthly": 80000.0,
+      "edc_existing": 150000.0,
+      "t_bill_amount": 300000.0
+    },
+    "behavioral_traits": {
+      "t_bill_sensitivity": "Active (GHS 300,000 maturing in 5 days)",
+      "fx_hedge_preference": "USD Allocation",
+      "risk_profile": "Moderate-Balanced (Score: 68/100)",
+      "last_refreshed": "Just now (Live Dynamic Creation)"
+    }
   }
 ]

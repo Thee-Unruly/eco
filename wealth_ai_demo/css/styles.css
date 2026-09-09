@@ -850,3 +850,125 @@ canvas {
   line-height: 1.5;
 }
 
+/* Executive Simulation Preset Deck (Q10 & Q13) */
+.sim-presets-deck {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+.sim-presets-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.pulse-dot-cyan {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ecobank-cyan);
+  box-shadow: 0 0 8px var(--ecobank-cyan);
+  display: inline-block;
+  animation: pulseCyan 2s infinite;
+}
+@keyframes pulseCyan {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.6; }
+}
+.sim-presets-group {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.sim-preset-card {
+  background: rgba(0, 26, 44, 0.7);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 10px 16px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 175px;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.sim-preset-card:hover {
+  background: rgba(0, 40, 68, 0.85);
+  border-color: rgba(0, 163, 180, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 163, 180, 0.25);
+}
+.sim-preset-card.active {
+  background: linear-gradient(135deg, rgba(0, 163, 180, 0.22) 0%, rgba(0, 40, 68, 0.7) 100%);
+  border: 1.5px solid var(--ecobank-cyan);
+  box-shadow: 0 0 16px rgba(0, 163, 180, 0.35);
+}
+.preset-card-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.preset-flag {
+  font-size: 16px;
+  line-height: 1;
+}
+.preset-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+}
+.preset-active-indicator {
+  display: none;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  background: var(--ecobank-cyan);
+  color: #001a2c;
+  padding: 1px 6px;
+  border-radius: 10px;
+  margin-left: auto;
+}
+.sim-preset-card.active .preset-active-indicator {
+  display: inline-block;
+}
+.preset-card-bottom {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.preset-meta-tag {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  letter-spacing: 0.3px;
+}
+.preset-meta-tag.cyan {
+  background: rgba(0, 163, 180, 0.15);
+  color: var(--ecobank-cyan);
+  border: 1px solid rgba(0, 163, 180, 0.3);
+}
+.preset-meta-tag.gold {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--ecobank-gold);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+.preset-meta-tag.green {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--success);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+.preset-meta-tag.muted {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-muted);
+}
+

@@ -685,19 +685,32 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Preset Buttons (Retirement Ghana, Overseas Endowment, BRVM Succession)
-  document.querySelectorAll('.btn-sim-preset').forEach(btn => {
+  function activateSimulationPreset(presetKey) {
+    const p = simEngine.presets[presetKey];
+    if (!p) return;
+
+    document.querySelectorAll('.sim-preset-card, .btn-sim-preset').forEach(b => {
+      if (b.dataset.preset === presetKey) {
+        b.classList.add('active');
+      } else {
+        b.classList.remove('active');
+      }
+    });
+
+    if (simDepositInput) simDepositInput.value = p.initialDeposit;
+    if (simMonthlyInput) simMonthlyInput.value = p.monthlyContribution;
+    if (simReturnInput) simReturnInput.value = p.expectedReturn;
+    if (simInflationInput) simInflationInput.value = p.inflationRate;
+    if (simHorizonInput) simHorizonInput.value = p.horizonYears;
+
+    updateSimulationFromInputs();
+  }
+  window.loadSimulationPreset = activateSimulationPreset;
+
+  document.querySelectorAll('.sim-preset-card, .btn-sim-preset').forEach(btn => {
     btn.addEventListener('click', () => {
       const presetKey = btn.dataset.preset;
-      const p = simEngine.presets[presetKey];
-      if (!p) return;
-
-      simDepositInput.value = p.initialDeposit;
-      simMonthlyInput.value = p.monthlyContribution;
-      simReturnInput.value = p.expectedReturn;
-      simInflationInput.value = p.inflationRate;
-      simHorizonInput.value = p.horizonYears;
-
-      updateSimulationFromInputs();
+      activateSimulationPreset(presetKey);
     });
   });
 

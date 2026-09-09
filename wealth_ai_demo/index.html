@@ -276,18 +276,56 @@
 
     <!-- ==================== TAB 3: GOAL SIMULATION & RISK FAN CHART (Q10 & Q13) ==================== -->
     <section id="tab-simulations" class="tab-pane">
-      <div class="pane-header">
-        <div class="pane-title-area">
+      <div class="pane-header" style="align-items: center; gap: 20px; flex-wrap: wrap;">
+        <div class="pane-title-area" style="flex: 1; min-width: 320px;">
           <h2>
             <span>Deterministic Goal Planning & Monte Carlo Fan Chart</span>
             <span class="tag-q">Q10 & Q13 Focus</span>
           </h2>
           <div class="pane-desc">Real-time recalculation engine wired to multi-dimensional sliders. Projects nominal gains, inflation drag, and 500-iteration stochastic volatility bands.</div>
         </div>
-        <div style="display: flex; gap: 8px;">
-          <button class="btn-secondary btn-sim-preset" data-preset="retirement_ghana">Ghana Retirement</button>
-          <button class="btn-secondary btn-sim-preset" data-preset="education_diaspora">Diaspora Endowment (USD)</button>
-          <button class="btn-secondary btn-sim-preset" data-preset="brvm_estate_waemu">BRVM Estate (XOF)</button>
+        <div class="sim-presets-deck">
+          <div class="sim-presets-label">
+            <span class="pulse-dot-cyan"></span>
+            <span>Live Scenario Presets:</span>
+          </div>
+          <div class="sim-presets-group">
+            <button class="sim-preset-card active" data-preset="retirement_ghana" title="Load Ghana Retirement Security scenario (GHS)">
+              <div class="preset-card-top">
+                <span class="preset-flag">🇬🇭</span>
+                <span class="preset-title">Ghana Retirement</span>
+                <span class="preset-active-indicator">ACTIVE</span>
+              </div>
+              <div class="preset-card-bottom">
+                <span class="preset-meta-tag cyan">14.5% Yield</span>
+                <span class="preset-meta-tag muted">GHS • 15 Yrs</span>
+              </div>
+            </button>
+
+            <button class="sim-preset-card" data-preset="education_diaspora" title="Load Overseas Diaspora Endowment scenario (USD)">
+              <div class="preset-card-top">
+                <span class="preset-flag">🌐</span>
+                <span class="preset-title">Diaspora Endowment</span>
+                <span class="preset-active-indicator">ACTIVE</span>
+              </div>
+              <div class="preset-card-bottom">
+                <span class="preset-meta-tag gold">8.5% Net USD</span>
+                <span class="preset-meta-tag muted">FX Domiciliary</span>
+              </div>
+            </button>
+
+            <button class="sim-preset-card" data-preset="brvm_estate_waemu" title="Load BRVM Succession & Real Estate scenario (XOF)">
+              <div class="preset-card-top">
+                <span class="preset-flag">🇨🇮</span>
+                <span class="preset-title">BRVM Succession</span>
+                <span class="preset-active-indicator">ACTIVE</span>
+              </div>
+              <div class="preset-card-bottom">
+                <span class="preset-meta-tag green">11.2% WAEMU BTP</span>
+                <span class="preset-meta-tag muted">XOF • 12 Yrs</span>
+              </div>
+            </button>
+          </div>
         </div>
       </div>
 
