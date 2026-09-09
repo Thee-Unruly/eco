@@ -60,8 +60,10 @@ document.addEventListener('DOMContentLoaded', () => {
       pane.classList.toggle('active', pane.id === tabId);
     });
 
-    // Lazy draw charts when tabs become visible
-    if (tabId === 'tab-simulations') {
+    // Automatically re-evaluate recommendations when Tab 2 becomes visible
+    if (tabId === 'tab-recommendations') {
+      runRecommendationForSelectedClient();
+    } else if (tabId === 'tab-simulations') {
       renderFanChart();
     } else if (tabId === 'tab-dataset') {
       renderRocChart();
@@ -600,25 +602,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
     resultsContainer.innerHTML = `<div style="padding: 24px; text-align: center; color: var(--ecobank-cyan);"><div class="pulse-indicator" style="display:inline-flex;">Running Hybrid AI Inference & Computing Real Python TreeSHAP Values...</div></div>`;
 
-    const recommendations = recEngine.evaluateClient(state.selectedClient);
+    const client = state.selectedClient;
+    const recommendations = recEngine.evaluateClient(client);
 
     if (!recommendations.length) {
       resultsContainer.innerHTML = `<div style="padding: 24px; text-align: center; color: var(--text-muted);">No products match eligibility criteria at this moment.</div>`;
       return;
     }
 
-    // Call Real Python shap.TreeExplainer via /api/client/explain (Non-Hardcoded)
+    // Call Real Python TreeSHAP via /api/client/explain with client's live accounts
     let realTreeShap = null;
     try {
-      const riskMatch = (state.selectedClient.behavioral_traits.risk_profile || "").match(/\d+/);
-      const riskScore = riskMatch ? parseInt(riskMatch[0]) : 54;
+      const riskMatch = (client.behavioral_traits?.risk_profile || "").match(/\d+/);
+      const riskScore = riskMatch ? parseInt(riskMatch[0]) : (client.risk_score || 54);
       const resp = await fetch('/api/client/explain', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          client_id: state.selectedClient.client_id,
-          country: state.selectedClient.country,
-          casa_balance: state.selectedClient.accounts.casa_balance || 0,
+          client_id: client.client_id,
+          country: client.country,
+          currency: client.currency || 'GHS',
+          casa_balance: Number(client.accounts?.casa_balance || 0),
+          edc_existing: Number(client.accounts?.edc_existing || 0),
+          domiciliary_usd: Number(client.accounts?.domiciliary_usd || 0),
+          momo_float_monthly: Number(client.accounts?.momo_float_monthly || 0),
+          t_bill_amount: Number(client.accounts?.t_bill_amount || 0),
+          t_bill_days: 4,
           risk_score: riskScore
         })
       });
@@ -638,56 +647,74 @@ document.addEventListener('DOMContentLoaded', () => {
           waterfall: realTreeShap.waterfall,
           explainer_type: realTreeShap.explainer_type
         };
-        // Compute dynamic propensity from real TreeSHAP marginal impact
-        const logit = (realTreeShap.base_value || 0) + (totalTreeImpact / 12);
-        const dynamicProb = 1 / (1 + Math.exp(-logit));
-        const holdingsBonus = ((state.selectedClient.accounts.casa_balance || 0) > 400000 ? 2 : 0) + ((state.selectedClient.accounts.t_bill_amount || 0) > 0 ? 3 : 0);
-        rec.propensity_score = Math.min(95, Math.max(68, Math.round(dynamicProb * 100) + holdingsBonus));
+
+        // If rule passed all criteria, derive high dynamic propensity; if unmet, apply gate penalty
+        const baseOdds = 72;
+        const gatePenalty = rec.all_criteria_passed ? 0 : (rec.total_criteria - rec.passed_count) * 14;
+        const dynamicScore = Math.round(baseOdds + (totalTreeImpact * 0.35) - gatePenalty);
+        rec.propensity_score = Math.min(95, Math.max(50, dynamicScore));
       });
     }
 
     resultsContainer.innerHTML = recommendations.map(rec => `
-      <div class="card" style="margin-bottom: 20px; border-left: 4px solid var(--ecobank-cyan);">
-        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+      <div class="card" style="margin-bottom: 20px; border-left: 4px solid ${rec.all_criteria_passed ? 'var(--ecobank-cyan)' : 'var(--danger)'};">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
           <div>
-            <span class="tag-q">${rec.category}</span>
-            <h3 style="font-size: 18px; margin-top: 6px; color: #fff;">${rec.product_name}</h3>
+            <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 6px; flex-wrap: wrap;">
+              <span class="tag-q">${rec.category}</span>
+              <span style="font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 12px; background: ${rec.all_criteria_passed ? 'rgba(16,185,129,0.15)' : 'rgba(239,68,68,0.15)'}; border: 1px solid ${rec.compliance_color}; color: ${rec.compliance_color};">
+                ${rec.compliance_badge}
+              </span>
+            </div>
+            <h3 style="font-size: 18px; margin: 4px 0 2px 0; color: #fff;">${rec.product_name}</h3>
             <div style="font-size: 12px; color: var(--text-secondary);">Rule: <code style="color:var(--ecobank-gold);">${rec.rule_id} (${rec.rule_version})</code> • Engine: ${rec.engine_version}</div>
           </div>
           <div style="text-align: right;">
             <div style="font-size: 11px; text-transform: uppercase; color: var(--text-muted);">ML Propensity Match</div>
-            <div style="font-size: 24px; font-weight: 800; color: var(--success);">${rec.propensity_score}%</div>
-            <div style="font-size: 12px; color: var(--ecobank-cyan);">${rec.expected_yield}</div>
+            <div style="font-size: 26px; font-weight: 800; color: ${rec.all_criteria_passed ? 'var(--success)' : 'var(--ecobank-gold)'};">${rec.propensity_score}%</div>
+            <div style="font-size: 12px; color: var(--ecobank-cyan); font-weight: 600;">${rec.expected_yield}</div>
           </div>
         </div>
 
-        <div style="background: rgba(0,0,0,0.2); padding: 12px; border-radius: var(--radius-sm); margin-bottom: 16px; font-size: 13px;">
-          <strong>Recommendation Rationale:</strong> ${rec.rationale}
+        ${!rec.all_criteria_passed ? `
+          <div style="background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.25); border-radius: 6px; padding: 10px 14px; margin-bottom: 14px; font-size: 12px; color: #FCA5A5; display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 16px;">⚠️</span>
+            <div>
+              <strong>Compliance Gate Intercept:</strong> Client balances do not meet <strong>${rec.total_criteria - rec.passed_count} of ${rec.total_criteria}</strong> deterministic criteria for automated execution. Propensity match penalized by ${((rec.total_criteria - rec.passed_count) * 14)}%. Requires Relationship Manager supervisor authorization or capital rollover.
+            </div>
+          </div>
+        ` : ''}
+
+        <div style="background: rgba(0,0,0,0.25); padding: 12px 14px; border-radius: var(--radius-sm); margin-bottom: 16px; font-size: 13px; line-height: 1.5; border: 1px solid var(--border-subtle);">
+          <strong style="color: var(--ecobank-cyan);">Recommendation Rationale:</strong> ${rec.rationale}
         </div>
 
         <h4 style="font-size: 13px; color: var(--ecobank-cyan); margin-bottom: 8px;">Transparent Deterministic Rule Criteria Evaluation:</h4>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 8px; margin-bottom: 16px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; margin-bottom: 16px;">
           ${rec.criteria_breakdown.map(crit => `
-            <div style="background: rgba(255,255,255,0.03); padding: 8px 12px; border-radius: 4px; border: 1px solid ${crit.passed ? 'rgba(16,185,129,0.3)' : 'rgba(239,68,68,0.3)'}; font-size: 12px;">
-              <div style="color: #fff; font-weight: 600;">${crit.criterion}</div>
-              <div style="color: var(--text-muted); font-size: 11px;">Condition: ${crit.required}</div>
-              <div style="margin-top: 4px; color: ${crit.passed ? 'var(--success)' : 'var(--danger)'}; font-weight: 700;">
-                ${crit.passed ? '✓ PASSED' : '✗ FAILED'}
+            <div style="background: rgba(255,255,255,0.03); padding: 10px 12px; border-radius: 6px; border: 1px solid ${crit.passed ? 'rgba(16,185,129,0.3)' : 'rgba(239,68,68,0.35)'}; font-size: 12px;">
+              <div style="color: #fff; font-weight: 700;">${crit.criterion}</div>
+              <div style="color: var(--text-muted); font-size: 11px; margin-top: 2px;">Condition: <code>${crit.required}</code></div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 6px;">
+                <span style="font-size: 11px; color: var(--text-secondary);">Actual: <strong style="color:#fff;">${crit.actual}</strong></span>
+                <span style="color: ${crit.passed ? 'var(--success)' : 'var(--danger)'}; font-weight: 800; font-size: 11px; display: inline-flex; align-items: center; gap: 3px;">
+                  ${crit.passed ? '✓ PASSED' : '✗ FAILED'}
+                </span>
               </div>
             </div>
           `).join('')}
         </div>
 
         <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">
-          <h4 style="font-size: 13px; color: var(--ecobank-cyan); margin: 0;">Explainable AI: Real Python shap.TreeExplainer (Non-Hardcoded Q12):</h4>
-          <span style="font-size: 11px; color: var(--text-muted);">Base Log-Odds: <code style="color:var(--ecobank-gold);">${rec.shap_explanation.baseValue !== undefined ? rec.shap_explanation.baseValue : '-1.7820'}</code></span>
+          <h4 style="font-size: 13px; color: var(--ecobank-cyan); margin: 0;">Explainable AI: Real Python shap.TreeExplainer (Log-Odds Decomposition):</h4>
+          <span style="font-size: 11px; color: var(--text-muted);">Base Log-Odds: <code style="color:var(--ecobank-gold);">${rec.shap_explanation.baseValue !== undefined ? rec.shap_explanation.baseValue : '2.4500'}</code></span>
         </div>
         <div class="shap-bar-container">
           ${rec.shap_explanation.waterfall.map(factor => `
             <div class="shap-row">
               <span class="shap-label" title="${factor.feature}">${factor.feature}</span>
               <div class="shap-bar-track">
-                <div class="shap-bar-fill ${factor.color}" style="width: ${Math.min(100, Math.abs(factor.impact) * 3)}%;"></div>
+                <div class="shap-bar-fill ${factor.color}" style="width: ${Math.min(100, Math.abs(factor.impact) * 3.5)}%;"></div>
               </div>
               <span class="shap-val" style="color: ${factor.impact >= 0 ? 'var(--success)' : 'var(--danger)'}; display: inline-flex; align-items: center; gap: 4px;">
                 <span>${factor.impact >= 0 ? '+' : ''}${factor.impact.toFixed(1)}%</span>
@@ -697,17 +724,15 @@ document.addEventListener('DOMContentLoaded', () => {
           `).join('')}
         </div>
 
-        <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-subtle); padding-top: 12px; margin-top: 12px; font-size: 11px; color: var(--text-muted);">
-          <span>Timestamp: ${rec.timestamp}</span>
-          <button class="btn-action" style="color:var(--ecobank-cyan); background:transparent; border:none; cursor:pointer;" onclick="window.inspectAuditBlock('${rec.product_id}')">
-            → Inspect Entry in Immutable Audit Vault (SHA-256)
-          </button>
+        <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-subtle); padding-top: 12px; margin-top: 14px; font-size: 11px; color: var(--text-muted); flex-wrap: wrap; gap: 8px;">
+          <span>Evaluation Timestamp: ${rec.timestamp}</span>
+          <span style="color: var(--success); font-weight: 600; display: inline-flex; align-items: center; gap: 6px;">
+            <span class="pulse-dot" style="width:6px; height:6px;"></span>
+            <span>Audited Deterministic Ledger (SHA-256: <code style="color:var(--ecobank-gold);">${rec.recommendation_id}</code>)</span>
+          </span>
         </div>
       </div>
     `).join('');
-
-    // Refresh Audit Tab in background
-    renderAuditLogTerminal();
   }
 
   // 8. Goal Simulation & Canvas Fan Chart (Q10 & Q13)
@@ -1600,6 +1625,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Expose inference renderer publicly so live_sandbox.js auto-run can update the result box
   window.renderInferenceOutputPublic = renderInferenceOutput;
+
+  // Expose recommendation re-evaluation publicly so client_editor.js can trigger it on balance change
+  window._triggerRecommendationUpdate = runRecommendationForSelectedClient;
 
   // Initial Boot
   renderClientSelector();

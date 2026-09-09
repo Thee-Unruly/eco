@@ -210,13 +210,28 @@
         el.textContent = `${currency} ${newVal.toLocaleString()}`;
       }
 
+      // Dynamic sub-label for EDC holdings
+      if (field.key === 'edc_existing') {
+        const edcStatus = document.getElementById('c360-edc-status');
+        if (edcStatus) {
+          if (newVal > 0) {
+            edcStatus.innerHTML = `<span style="color: var(--success); font-weight: 700;">Active Account (${currency} ${newVal.toLocaleString()})</span>`;
+          } else {
+            edcStatus.innerHTML = `<span style="color: var(--danger);">Cross-Sell White Space</span>`;
+          }
+        }
+      }
+
       // Flash the cell green to confirm
       el.style.color = 'var(--success)';
       el.style.transition = 'color 0.3s';
       setTimeout(() => { el.style.color = ''; }, 1200);
 
-      // Trigger full re-calculation: health engine, alerts, co-pilot
+      // Trigger full re-calculation on Tab 1: health engine, alerts, co-pilot
       window._triggerClientHealthUpdate?.(client);
+
+      // Trigger automatic re-evaluation of Tab 2 recommendations with live balances!
+      window._triggerRecommendationUpdate?.();
 
       // Show toast
       showEditToast(`${field.label} updated → ${currency} ${newVal.toLocaleString()}`);
