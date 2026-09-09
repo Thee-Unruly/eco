@@ -26,8 +26,8 @@
   // ── Bootstrap ──────────────────────────────────────────────────────────────
   window.initClientEditor = function () {
     injectEditModeBadge();
-    injectEditModeToggle();
     attachEditableFields();
+    wireEditModeToggle();
     injectWhatIfPanel();
   };
 
@@ -57,29 +57,16 @@
     nameEl.parentElement.appendChild(badge);
   }
 
-  // ── "Edit Balances" toggle button ──────────────────────────────────────────
-  function injectEditModeToggle() {
-    const paneHeader = document.querySelector('#tab-client360 .pane-header');
-    if (!paneHeader || document.getElementById('btn-edit-mode-toggle')) return;
-
-    const toggleBtn = document.createElement('button');
-    toggleBtn.id = 'btn-edit-mode-toggle';
-    toggleBtn.className = 'btn-secondary';
-    toggleBtn.style.cssText = 'padding: 6px 14px; font-size: 12px; cursor: pointer;';
-    toggleBtn.textContent = '✎ Edit Client Balances';
+  // ── Wire the HTML-native Edit toggle button ────────────────────────────────
+  function wireEditModeToggle() {
+    const toggleBtn = document.getElementById('btn-edit-mode-toggle');
+    if (!toggleBtn || toggleBtn.dataset.editorWired) return;
+    toggleBtn.dataset.editorWired = '1';
 
     toggleBtn.addEventListener('click', () => {
       editModeActive = !editModeActive;
       updateEditModeState();
     });
-
-    // Insert next to the existing header controls
-    const titleArea = paneHeader.querySelector('.pane-title-area');
-    if (titleArea) {
-      paneHeader.insertBefore(toggleBtn, titleArea.nextSibling);
-    } else {
-      paneHeader.appendChild(toggleBtn);
-    }
   }
 
   // ── Toggle visual state for all editable cells ─────────────────────────────
