@@ -1,0 +1,157 @@
+[
+  {
+    "client_id": "ECO-GH-49210",
+    "name": "Kwame Mensah",
+    "country": "Ghana",
+    "city": "Accra",
+    "currency": "GHS",
+    "segment": "Premier Banking / Affluent",
+    "relationship_manager": "Abena Osei (Ecobank Ridge Branch, Accra)",
+    "accounts": {
+      "casa_balance": 485000,
+      "domiciliary_usd": 62000,
+      "momo_float_monthly": 145000,
+      "edc_existing": 0,
+      "t_bill_amount": 350000
+    },
+    "behavioral_traits": {
+      "t_bill_sensitivity": "High (Holding maturing 91-day paper: GHS 350,000)",
+      "fx_hedge_preference": "Aggressive USD protection",
+      "risk_profile": "Moderate-Balanced (Score: 54/100)",
+      "last_refreshed": "Just now (Kafka Event Stream - Core Flexcube CDC)"
+    }
+  },
+  {
+    "client_id": "ECO-CI-88301",
+    "name": "Amadou Diallo",
+    "country": "Côte d'Ivoire",
+    "city": "Abidjan",
+    "currency": "XOF",
+    "segment": "High Net Worth (HNW) - Private Wealth",
+    "relationship_manager": "Jean-Luc Kouassi (Ecobank Plateau, Abidjan)",
+    "accounts": {
+      "casa_balance": 58000000,
+      "domiciliary_eur": 45000,
+      "domiciliary_usd": 0,
+      "momo_float_monthly": 22000000,
+      "edc_existing": 12500000,
+      "t_bill_amount": 0
+    },
+    "behavioral_traits": {
+      "t_bill_sensitivity": "Moderate (Allocated to regional WAEMU BTPs)",
+      "fx_hedge_preference": "EUR pegged / CFA preservation",
+      "risk_profile": "Conservative / Capital Preservation (Score: 38/100)",
+      "last_refreshed": "Just now (WAEMU Regional Clearing Hub)"
+    }
+  },
+  {
+    "client_id": "ECO-NG-10492",
+    "name": "Ngozi Okonjo",
+    "country": "Nigeria",
+    "city": "Lagos",
+    "currency": "NGN",
+    "segment": "Corporate Executive Wealth",
+    "relationship_manager": "Chidi Eze (Ecobank Victoria Island, Lagos)",
+    "accounts": {
+      "casa_balance": 42000000,
+      "domiciliary_usd": 185000,
+      "momo_float_monthly": 8500000,
+      "edc_existing": 0,
+      "t_bill_amount": 15000000
+    },
+    "behavioral_traits": {
+      "t_bill_sensitivity": "Aggressive (High-Yield CBN OMO Bills)",
+      "fx_hedge_preference": "Mandatory USD Domiciliary Allocation",
+      "risk_profile": "Growth / High-Beta (Score: 78/100)",
+      "last_refreshed": "Just now (NIBSS Instant Payment Engine)"
+    }
+  },
+  {
+    "client_id": "ECO-GH-39255",
+    "name": "Dr. Kofi Annan",
+    "country": "Ghana",
+    "city": "Accra",
+    "currency": "GHS",
+    "segment": "Premier Banking / Affluent",
+    "relationship_manager": "Abena Osei (Ecobank Ridge Branch)",
+    "accounts": {
+      "casa_balance": 750000.0,
+      "domiciliary_usd": 0.0,
+      "momo_float_monthly": 20000.0,
+      "edc_existing": 50000.0,
+      "t_bill_amount": 200000.0
+    },
+    "behavioral_traits": {
+      "t_bill_sensitivity": "Active (GHS 200,000 maturing in 7 days)",
+      "fx_hedge_preference": "Domestic Preservation",
+      "risk_profile": "Moderate-Balanced (Score: 65/100)",
+      "last_refreshed": "Just now (Live Dynamic Creation)"
+    }
+  },
+  {
+    "client_id": "ECO-GH-39543",
+    "name": "Dr. Kojo Boakye",
+    "country": "Ghana",
+    "city": "Accra",
+    "currency": "GHS",
+    "segment": "Corporate Executive Wealth",
+    "relationship_manager": "Kofi Addo (Accra High Street)",
+    "accounts": {
+      "casa_balance": 750000.0,
+      "domiciliary_usd": 50000.0,
+      "momo_float_monthly": 80000.0,
+      "edc_existing": 150000.0,
+      "t_bill_amount": 300000.0
+    },
+    "behavioral_traits": {
+      "t_bill_sensitivity": "Active (GHS 300,000 maturing in 5 days)",
+      "fx_hedge_preference": "USD Allocation",
+      "risk_profile": "Moderate-Balanced (Score: 68/100)",
+      "last_refreshed": "Just now (Live Dynamic Creation)"
+    }
+  },
+  {
+    "client_id": "ECO-GH-39548",
+    "name": "Dr. Kojo Boakye",
+    "country": "Ghana",
+    "city": "Accra",
+    "currency": "GHS",
+    "segment": "Corporate Executive Wealth",
+    "relationship_manager": "Kofi Addo (Accra High Street)",
+    "accounts": {
+      "casa_balance": 750000.0,
+      "domiciliary_usd": 50000.0,
+      "momo_float_monthly": 80000.0,
+      "edc_existing": 150000.0,
+      "t_bill_amount": 300000.0
+    },
+    "behavioral_traits": {
+      "t_bill_sensitivity": "Active (GHS 300,000 maturing in 5 days)",
+      "fx_hedge_preference": "USD Allocation",
+      "risk_profile": "Moderate-Balanced (Score: 68/100)",
+      "last_refreshed": "Just now (Live Dynamic Creation)"
+    }
+  },
+  {
+    "client_id": "ECO-GH-42085",
+    "name": "Dr. Kojo Boakye",
+    "country": "Ghana",
+    "city": "Accra",
+    "currency": "GHS",
+    "segment": "Corporate Executive Wealth",
+    "relationship_manager": "Kofi Addo (Accra High Street)",
+    "accounts": {
+      "casa_balance": 750000.0,
+      "domiciliary_usd": 50000.0,
+      "momo_float_monthly": 80000.0,
+      "edc_existing": 150000.0,
+      "t_bill_amount": 300000.0
+    },
+    "behavioral_traits": {
+      "t_bill_sensitivity": "Active (GHS 300,000 maturing in 5 days)",
+      "fx_hedge_preference": "USD Allocation",
+      "risk_profile": "Moderate-Balanced (Score: 68/100)",
+      "last_refreshed": "Just now (Live Dynamic Creation)"
+    }
+  }
+]

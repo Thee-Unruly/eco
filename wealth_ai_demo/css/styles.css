@@ -787,42 +787,45 @@ canvas {
 
 /* Priority AI Alerts */
 .priority-alert-item {
-  background: rgba(0, 0, 0, 0.35);
-  border-radius: var(--radius-sm);
-  padding: 10px 14px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-left: 4px solid var(--ecobank-cyan);
+  border-left: 5px solid var(--ecobank-cyan);
   transition: transform 0.15s, background 0.15s;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  gap: 16px;
 }
 .priority-alert-item:hover {
-  background: rgba(255, 255, 255, 0.04);
-  transform: translateX(2px);
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateX(4px);
 }
 .priority-alert-item.urgent {
   border-left-color: var(--danger);
-  background: rgba(239, 68, 68, 0.08);
+  background: rgba(239, 68, 68, 0.12);
 }
 .priority-alert-item.warning {
   border-left-color: var(--ecobank-gold);
-  background: rgba(245, 158, 11, 0.08);
+  background: rgba(245, 158, 11, 0.12);
 }
 .priority-alert-item.info {
   border-left-color: var(--ecobank-cyan);
-  background: rgba(0, 163, 180, 0.08);
+  background: rgba(0, 163, 180, 0.12);
 }
 
 .alert-badge {
-  font-size: 10px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 800;
   text-transform: uppercase;
-  padding: 2px 6px;
-  border-radius: 4px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
 }
-.alert-badge.urgent { background: rgba(239, 68, 68, 0.2); color: var(--danger); }
-.alert-badge.warning { background: rgba(245, 158, 11, 0.2); color: var(--ecobank-gold); }
-.alert-badge.info { background: rgba(0, 163, 180, 0.2); color: var(--ecobank-cyan); }
+.alert-badge.urgent { background: rgba(239, 68, 68, 0.25); color: #ff6b6b; border: 1px solid rgba(239, 68, 68, 0.4); }
+.alert-badge.warning { background: rgba(245, 158, 11, 0.25); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
+.alert-badge.info { background: rgba(0, 163, 180, 0.25); color: #22d3ee; border: 1px solid rgba(0, 163, 180, 0.4); }
 
 /* RM Advisory Co-Pilot Elements */
 .copilot-metric-pill {
