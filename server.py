@@ -461,6 +461,17 @@ def create_custom_client(req: CreateClientRequest):
     Dynamically creates any custom client profile on the fly (100% Non-Hardcoded)
     """
     clients = load_clients()
+    # Deduplicate: if client with same name already exists, update instead of duplicating
+    existing = next((c for c in clients if c.get("name", "").strip().lower() == req.name.strip().lower()), None)
+    if existing:
+        existing["accounts"]["casa_balance"] = req.casa_balance
+        existing["accounts"]["domiciliary_usd"] = req.domiciliary_usd
+        existing["accounts"]["momo_float_monthly"] = req.momo_float_monthly
+        existing["accounts"]["edc_existing"] = req.edc_existing
+        existing["accounts"]["t_bill_amount"] = req.t_bill_amount
+        save_clients(clients)
+        return existing
+
     country_codes = {"Ghana": "GH", "Côte d'Ivoire": "CI", "Nigeria": "NG", "Kenya": "KE"}
     cc = country_codes.get(req.country, "PAN")
     client_id = f"ECO-{cc}-{int(time.time()) % 100000:05d}"

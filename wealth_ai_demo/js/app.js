@@ -93,15 +93,34 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 6. Client 360° Management (Q8)
+  const CORE_CLIENT_IDS = ['ECO-GH-49210', 'ECO-CI-88301', 'ECO-NG-10492', 'ECO-KE-29401'];
+
   function renderClientSelector() {
     const container = document.getElementById('client-selector-container');
     if (!container) return;
+
+    // Deduplicate in UI by client name
+    const uniqueClients = [];
+    const seenNames = new Set();
+    for (const c of state.clients) {
+      const key = (c.name || '').trim().toLowerCase();
+      if (!seenNames.has(key)) {
+        seenNames.add(key);
+        uniqueClients.push(c);
+      }
+    }
+    state.clients = uniqueClients;
 
     container.innerHTML = state.clients.map(client => `
       <div class="client-item ${client.client_id === state.selectedClient.client_id ? 'active' : ''}" data-id="${client.client_id}">
         <div class="client-item-header">
           <span class="client-name">${client.name}</span>
-          <span class="client-badge">${client.country}</span>
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <span class="client-badge">${client.country}</span>
+            ${!CORE_CLIENT_IDS.includes(client.client_id) ? `
+              <button class="btn-delete-client" title="Delete Profile" data-id="${client.client_id}" style="background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 12px; padding: 2px 4px; border-radius: 4px;" onmouseover="this.style.color='var(--danger)';" onmouseout="this.style.color='var(--text-muted)';">✕</button>
+            ` : ''}
+          </div>
         </div>
         <div class="client-meta">
           <span>${client.segment}</span> • <span>${client.city || 'Accra'}</span>
@@ -110,7 +129,8 @@ document.addEventListener('DOMContentLoaded', () => {
     `).join('');
 
     container.querySelectorAll('.client-item').forEach(item => {
-      item.addEventListener('click', () => {
+      item.addEventListener('click', (e) => {
+        if (e.target.classList.contains('btn-delete-client')) return;
         const cId = item.dataset.id;
         state.selectedClient = state.clients.find(c => c.client_id === cId) || state.selectedClient;
         renderClientSelector();
@@ -118,6 +138,24 @@ document.addEventListener('DOMContentLoaded', () => {
         // Clear previous recommendations to show fresh state
         const recResults = document.getElementById('recommendation-results-container');
         if (recResults) recResults.innerHTML = `<div style="padding: 24px; text-align: center; color: var(--text-muted);">Click "Run AI Recommendation Engine" to evaluate ${state.selectedClient.name}'s profile with live TreeSHAP.</div>`;
+      });
+    });
+
+    container.querySelectorAll('.btn-delete-client').forEach(btn => {
+      btn.addEventListener('click', async (e) => {
+        e.stopPropagation();
+        const cId = btn.dataset.id;
+        try {
+          await fetch(`/api/clients/${cId}`, { method: 'DELETE' });
+        } catch (err) {
+          console.warn('Backend delete failed, removing locally:', err);
+        }
+        state.clients = state.clients.filter(c => c.client_id !== cId);
+        if (state.selectedClient.client_id === cId) {
+          state.selectedClient = state.clients[0];
+        }
+        renderClientSelector();
+        renderClientDetails();
       });
     });
   }
@@ -128,7 +166,17 @@ document.addEventListener('DOMContentLoaded', () => {
       if (resp.ok) {
         const backendClients = await resp.json();
         if (Array.isArray(backendClients) && backendClients.length > 0) {
-          state.clients = backendClients;
+          // Deduplicate backend list by name
+          const uniqueClients = [];
+          const seenNames = new Set();
+          for (const c of backendClients) {
+            const key = (c.name || '').trim().toLowerCase();
+            if (!seenNames.has(key)) {
+              seenNames.add(key);
+              uniqueClients.push(c);
+            }
+          }
+          state.clients = uniqueClients;
           const found = state.clients.find(c => c.client_id === state.selectedClient.client_id);
           state.selectedClient = found || state.clients[0];
           renderClientSelector();
