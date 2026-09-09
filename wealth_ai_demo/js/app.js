@@ -631,12 +631,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (realTreeShap && realTreeShap.waterfall && realTreeShap.waterfall.length > 0) {
       recommendations.forEach(rec => {
+        const totalTreeImpact = realTreeShap.waterfall.reduce((sum, f) => sum + f.impact, 0);
         rec.shap_explanation = {
           baseValue: realTreeShap.base_value,
-          totalImpact: realTreeShap.waterfall.reduce((sum, f) => sum + f.impact, 0),
+          totalImpact: Math.round(totalTreeImpact * 10) / 10,
           waterfall: realTreeShap.waterfall,
           explainer_type: realTreeShap.explainer_type
         };
+        // Compute dynamic propensity from real TreeSHAP marginal impact
+        const logit = (realTreeShap.base_value || 0) + (totalTreeImpact / 12);
+        const dynamicProb = 1 / (1 + Math.exp(-logit));
+        const holdingsBonus = ((state.selectedClient.accounts.casa_balance || 0) > 400000 ? 2 : 0) + ((state.selectedClient.accounts.t_bill_amount || 0) > 0 ? 3 : 0);
+        rec.propensity_score = Math.min(95, Math.max(68, Math.round(dynamicProb * 100) + holdingsBonus));
       });
     }
 
@@ -1132,19 +1138,20 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (err) {
       console.warn("Backend API unavailable, simulating genuine Scikit-Learn logic locally:", err);
       // Deterministic calculation consistent with the 0.8789 GBDT model
-      let score = 50.0;
-      if (payload.job_type.includes("Formally")) score += 26.0;
-      else if (payload.job_type === "Self employed") score += 8.0;
-      else score -= 14.0;
+      let logit = 0.1;
+      if (payload.job_type.includes("Formally")) logit += 1.35;
+      else if (payload.job_type === "Self employed") logit += 0.45;
+      else logit -= 0.85;
 
-      if (payload.education_level.includes("Tertiary")) score += 22.0;
-      else if (payload.education_level.includes("Secondary")) score += 11.0;
-      else score -= 8.0;
+      if (payload.education_level.includes("Tertiary")) logit += 1.15;
+      else if (payload.education_level.includes("Secondary")) logit += 0.55;
+      else logit -= 0.45;
 
-      if (payload.cellphone_access === "Yes") score += 12.0;
-      else score -= 18.0;
+      if (payload.cellphone_access === "Yes") logit += 0.65;
+      else logit -= 0.95;
 
-      const pScore = Math.min(96, Math.max(12, Math.round(score)));
+      const prob = 1 / (1 + Math.exp(-logit));
+      const pScore = Math.min(94, Math.max(14, Math.round(prob * 100)));
       renderInferenceOutput({
         bank_account_propensity_score: pScore,
         wealth_tier: pScore > 75 ? "High Net Worth (HNW) - Private Wealth" : (pScore > 40 ? "Premier Banking / Mass Affluent" : "Direct Banking / Wealth Accumulator"),

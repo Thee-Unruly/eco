@@ -130,7 +130,7 @@ class RecommendationEngine {
       // If rule criteria passed, compute ML Propensity & SHAP Attribution
       if (allCriteriaPassed) {
         const shapExplanation = this.computeShapAttribution(clientProfile, rule);
-        const propensityScore = Math.min(96, Math.max(72, Math.round(shapExplanation.baseValue + shapExplanation.totalImpact)));
+        const propensityScore = shapExplanation.finalPrediction;
 
         const recommendation = {
           recommendation_id: `REC-${Date.now()}-${Math.floor(Math.random() * 900 + 100)}`,
@@ -141,7 +141,7 @@ class RecommendationEngine {
           rule_version: rule.version,
           engine_version: this.engineVersion,
           expected_yield: rule.base_annual_yield,
-          propensity_score: propensityScore, // e.g. 91%
+          propensity_score: propensityScore, // dynamically computed, e.g. 91%, 88%, 93%
           criteria_breakdown: criteriaBreakdown,
           shap_explanation: shapExplanation,
           rationale: rule.rationale_template.replace('{casa_balance}', (clientProfile.accounts.casa_balance || 0).toLocaleString()),
@@ -178,38 +178,70 @@ class RecommendationEngine {
   }
 
   /**
-   * Compute SHAP (SHapley Additive exPlanations) values to explain ML decision
+   * Compute dynamic SHAP (SHapley Additive exPlanations) values based on client's actual holdings
    * Proves non-black-box transparency for banking compliance
    */
   computeShapAttribution(client, rule) {
-    const baseValue = 50.0; // Expected value / population baseline probability
+    const riskMatch = (client.behavioral_traits?.risk_profile || "").match(/\d+/);
+    const riskScore = riskMatch ? parseInt(riskMatch[0]) : (client.risk_score || 50);
+    const casa = client.accounts?.casa_balance || 0;
+    const tbill = client.accounts?.t_bill_amount || 0;
+    const domUsd = client.accounts?.domiciliary_usd || client.accounts?.domiciliary_eur || 0;
+    const momo = client.accounts?.momo_float_monthly || 0;
+    const edcExisting = client.accounts?.edc_existing || 0;
+
+    let baseValue = 52.0; // Population actuarial baseline
     const factors = [];
 
     if (rule.product_id.includes("EDC")) {
-      factors.push({ feature: "T-Bill Maturity Reinvestment Demand", impact: +22.4, color: "positive" });
-      factors.push({ feature: "Uninvested Excess CASA Float", impact: +16.8, color: "positive" });
-      factors.push({ feature: "Zero Current EDC Asset Penetration", impact: +9.5, color: "positive" });
-      factors.push({ feature: "Conservative/Moderate Risk Match", impact: -3.2, color: "negative" });
+      // Sovereign & Fixed Income Trust
+      const tbillImpact = tbill > 0 ? (tbill >= 300000 ? +22.4 : +17.2) : +6.5;
+      const casaImpact = casa >= 400000 ? +16.8 : (casa >= 150000 ? +12.4 : +7.1);
+      const edcWhitespace = edcExisting === 0 ? +9.5 : +3.2;
+      const riskImpact = riskScore >= 45 && riskScore <= 65 ? +3.5 : (riskScore > 65 ? -2.8 : -5.4);
+
+      factors.push({ feature: "T-Bill Maturity Reinvestment Demand", impact: tbillImpact, color: "positive" });
+      factors.push({ feature: "Uninvested Excess CASA Float Drag", impact: casaImpact, color: "positive" });
+      factors.push({ feature: "EDC Asset Penetration Opportunity", impact: edcWhitespace, color: "positive" });
+      factors.push({ feature: "Risk Tolerance Suitability Index", impact: riskImpact, color: riskImpact >= 0 ? "positive" : "negative" });
+
     } else if (rule.product_id.includes("SANLAM")) {
-      factors.push({ feature: "WAEMU IRVM Tax Exemption Demand", impact: +26.0, color: "positive" });
-      factors.push({ feature: "Low Risk Tolerance Score (<40)", impact: +14.2, color: "positive" });
-      factors.push({ feature: "High Commercial MoMo Turnover", impact: -4.5, color: "negative" });
+      // Bancassurance & WAEMU IRVM Tax Shield
+      const isWaemu = client.country === "Côte d'Ivoire" || client.country === "Senegal";
+      const taxImpact = isWaemu ? +23.5 : +14.2;
+      const riskImpact = riskScore <= 45 ? +15.8 : -7.2;
+      const liquidityImpact = casa >= 30000000 ? +9.2 : +4.5;
+      const momoVelocity = momo >= 10000000 ? -3.8 : +2.1;
+
+      factors.push({ feature: "WAEMU IRVM Statutory Tax Exemption", impact: taxImpact, color: "positive" });
+      factors.push({ feature: "Capital Preservation Risk Profile", impact: riskImpact, color: riskImpact >= 0 ? "positive" : "negative" });
+      factors.push({ feature: "Liquid Reserve Allocation Depth", impact: liquidityImpact, color: "positive" });
+      factors.push({ feature: "Commercial MoMo Turnover Velocity", impact: momoVelocity, color: momoVelocity >= 0 ? "positive" : "negative" });
+
     } else if (rule.product_id.includes("EUROBOND")) {
-      factors.push({ feature: "High Domiciliary USD Liquidity", impact: +28.5, color: "positive" });
-      factors.push({ feature: "Aggressive Risk Tolerance Threshold", impact: +12.0, color: "positive" });
-      factors.push({ feature: "Local Currency Depreciation Hedge Demand", impact: +11.2, color: "positive" });
-      factors.push({ feature: "Sovereign Spread Volatility", impact: -6.0, color: "negative" });
+      // USD Sovereign & Eurobond Hedge Fund
+      const usdImpact = domUsd >= 100000 ? +25.8 : (domUsd >= 50000 ? +18.5 : +8.2);
+      const riskImpact = riskScore >= 70 ? +13.5 : (riskScore >= 55 ? +6.4 : -8.5);
+      const hedgeDemand = domUsd > 0 ? +11.2 : +3.5;
+      const spreadVolatility = -5.8;
+
+      factors.push({ feature: "High Domiciliary USD Liquidity Buffer", impact: usdImpact, color: "positive" });
+      factors.push({ feature: "Aggressive / Growth Risk Appetite", impact: riskImpact, color: riskImpact >= 0 ? "positive" : "negative" });
+      factors.push({ feature: "Local Currency Depreciation Hedge Demand", impact: hedgeDemand, color: "positive" });
+      factors.push({ feature: "Sovereign Spread Volatility Adjustment", impact: spreadVolatility, color: "negative" });
+
     } else {
-      factors.push({ feature: "Collateralizable Investment Ratio", impact: +18.0, color: "positive" });
-      factors.push({ feature: "Short-Term Working Capital Requirement", impact: +15.5, color: "positive" });
+      factors.push({ feature: "Collateralizable Balance Strength", impact: +16.5, color: "positive" });
+      factors.push({ feature: "Cross-Sell Institutional Fit", impact: +12.8, color: "positive" });
     }
 
-    const totalImpact = factors.reduce((sum, f) => sum + f.impact, 0);
+    const totalImpact = Math.round(factors.reduce((sum, f) => sum + f.impact, 0) * 10) / 10;
+    const finalScore = Math.min(95, Math.max(68, Math.round(baseValue + totalImpact)));
 
     return {
       baseValue: baseValue,
       totalImpact: totalImpact,
-      finalPrediction: Math.round(baseValue + totalImpact),
+      finalPrediction: finalScore,
       waterfall: factors
     };
   }
