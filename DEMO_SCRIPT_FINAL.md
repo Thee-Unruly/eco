@@ -1,48 +1,49 @@
 # 🎙️ Ecobank WealthAI Studio — The Definitive Demo Script & Presenter Playbook
-### Round 2 Evaluation (eProcess Ghana) · 5-Tab Master Presentation & Live Validation Guide
+### Round 2 Evaluation (eProcess Ghana) · 5-Tab Live Validation Playbook
 
 ---
 
-> ### 💡 How to Use This Script
-> - **`🗣️ SAY THIS:`** Word-for-word conversational speech. Speak at a measured, confident pace. Don't sound robotic or like you're reading a technical manual.
+> ### 💡 Presentation Rules of Thumb
+> - **`🗣️ SAY THIS:`** Read these lines naturally. They are written in conversational, human language — no dry recitations or academic jargon.
 > - **`👆 DO THIS:`** The exact click, hover, or typing action to perform on screen.
-> - **`💡 THE "WHY" & THE NUMBERS:`** Plain-English explanation of why this feature matters to Ecobank and what the numbers actually mean.
-> - **`🛡️ EVALUATOR PROBE DEFENSE:`** Exact counter-arguments when technical or business evaluators challenge you.
+> - **Every term is defined inline:** The script explains CASA, MoMo, EDC, T-Bills, XOF, and GHS as part of natural conversation, so you never get stuck.
+> - **Every figure is explained:** You won’t fumble over what "53/100 Health", "86% vs 59% Propensity", "-GHS 8,730/mo Cash Drag", or "P10/P50/P90" mean.
+> - **Live Stress-Testing:** Includes the exact sequence to test changing balances live (CASA to GHS 90,000 & EDC to GHS 500) to prove to evaluators that the engine is 100% dynamic!
 
 ---
 
-## 📋 PRE-DEMO CHECKLIST (Do 5 Minutes Before Walking In)
+## 📋 PRE-DEMO CHECKLIST (2 Minutes Before)
 
-1. **Verify Backend:** Confirm terminal running `server.py` shows: `Uvicorn running on http://127.0.0.1:8080`.
-2. **Open Browser:** Navigate to `http://localhost:8080/index.html` in Google Chrome or Edge.
-3. **Check Live Stream Indicator:** Top right corner must show the **green pulsing dot** with `Flexcube CDC Stream: Real-Time Active` and a live timestamp ticking every 2 seconds.
-4. **Presenter HUD:** Optional safety net — click **"Presenter HUD (Q-Guide)"** in the top right to dock the question navigator and cheat sheet at the bottom of the screen.
-5. **Set Starting Tab:** Start on **Tab 1: Client 360° & Cadence**.
+1. Verify backend terminal: `Uvicorn running on http://127.0.0.1:8080`.
+2. Browser open on: `http://localhost:8080/index.html`.
+3. Confirm the **green pulsing dot** in the top right: `Flexcube CDC Stream: Real-Time Active`.
+4. *(Optional safety net)* Click **"Presenter HUD (Q-Guide)"** in the top right to dock the question guide at the bottom of your screen.
+5. Start on **Tab 1: Client 360° & Cadence**.
 
 ---
 
 ## ⚡ 60-SECOND ELEVATOR HOOK: Orienting the Room
 
-👆 *Stand up or sit straight. Point to the top navigation header on the screen.*
+👆 *Stand up or sit tall. Point to the top navigation header on screen.*
 
 🗣️ **SAY THIS:**
 > *"Good morning, members of the evaluation committee. Thank you for your time today.*
 > 
 > *What you see on screen is the **Ecobank WealthAI Studio**. We designed this platform around one central African banking reality: **conventional Western wealth management software fails in Africa because it does not understand how African money moves.***
 > 
-> *African clients don't just hold stocks and bonds in a single currency. They run commercial liquidity through Mobile Money. They protect their families against currency devaluation using dual-currency USD domiciliary accounts. They roll over sovereign government Treasury Bills. And far too often, they leave hundreds of thousands of Cedis or CFA Francs sitting idle in low-interest current accounts, where inflation silently destroys their purchasing power.*
+> *African clients don't just hold stocks and bonds in a single currency. They run commercial liquidity through Mobile Money. They protect their families against currency depreciation using dual-currency USD domiciliary accounts. They roll over sovereign government Treasury Bills. And far too often, they leave hundreds of thousands of Cedis or CFA Francs sitting idle in low-interest current accounts, where inflation silently destroys their purchasing power.*
 > 
-> *Today, I will walk you through **five dedicated capability modules** that directly answer your evaluation agenda. We will look at unified client data streaming live from core banking, explainable AI recommendations that give your Relationship Managers the exact commercial pitch, zero-latency goal simulation, automated regulatory guardrails with demonstrable hard blocks, and 100% empirical machine learning trained on over 23,000 African records.*
+> *Today, I will walk you through **five dedicated capability modules** mapping directly to your evaluation agenda: unified client data streaming live from core banking, explainable AI recommendations that arm your Relationship Managers with the exact commercial pitch, zero-latency goal simulation, automated regulatory guardrails with demonstrable hard blocks, and 100% empirical machine learning trained on over 23,000 African records.*
 > 
-> *Most importantly — everything on this screen is dynamic and interactive. At any point, tell me a number or a profile, and we will test it live together. Let's start with Tab 1: Client 360."*
+> *Most importantly — everything on this screen is dynamic and interactive. At any point, give me a number or a scenario, and we will test it live together. Let's start with Tab 1."*
 
 ---
 
 ## 📁 TAB 1: Unified Client 360° Profile & Real-Time Sync (Q8 Focus)
 
-### Scene 1: The Context & Meet Kwame Mensah
-👆 *Click **"Client 360° & Cadence"** (Tab 1, default active).*
-👆 *Point to the top card showing Kwame Mensah's name, segment, and branch.*
+### Scene 1: Meet Kwame Mensah
+👆 *Click **"Client 360° & Cadence"** (Tab 1).*
+👆 *Point to the profile header showing Kwame Mensah's name, segment, and branch.*
 
 🗣️ **SAY THIS:**
 > *"Question 8 focuses on unified client visibility and data refresh cadence. Here is our client: **Kwame Mensah**, an affluent client in Ecobank Premier Banking, managed by Relationship Manager Abena Osei at our Ridge Branch in Accra.*
@@ -51,13 +52,13 @@
 
 ---
 
-### Scene 2: The 4 Account Pools (Explain Every Number & Term Inline!)
-👆 *Point to the four big metric boxes across the top.*
+### Scene 2: The 4 Account Pools (Defined Inline in Plain English)
+👆 *Point across the four stat boxes at the top.*
 
 🗣️ **SAY THIS:**
-> *"Look at these four account pools. In a traditional bank, these sit in four separate silos. Here, they are unified:*
+> *"Look at these four account pools. In a traditional bank, these sit in separate silos. Here, they are unified:*
 > 
-> *1. **First, CASA Cash Reserves: GHS 485,000.** Let me clarify what CASA means: it stands for **Current Account and Savings Account** — the basic, everyday bank account. GHS is the Ghanaian Cedi, so 485,000 Cedis is roughly USD 31,000. Now here is the problem: CASA accounts in Ghana pay next to nothing in interest — maybe 1 to 3 percent. When a client leaves nearly half a million Cedis sitting idle in a current account, that money is dying a slow death against 21% inflation. In banking, we call this **'cash drag'**.*
+> *1. **First, CASA Cash Reserves: GHS 485,000.** CASA stands for **Current Account and Savings Account** — the basic, everyday bank account. GHS is the Ghanaian Cedi, so 485,000 Cedis is roughly USD 31,000. Now here is the problem: CASA accounts in Ghana pay next to nothing in interest — maybe 1 to 3 percent. When a client leaves nearly half a million Cedis sitting idle in a current account, that money is dying a slow death against 21% inflation. In banking, we call this **'cash drag'**.*
 > 
 > *2. **Second, FX Domiciliary Balance: $62,000 USD.** In West Africa, a 'domiciliary account' is a legally permitted foreign currency account held right here in Ghana. Kwame keeps 62,000 US Dollars as an FX hedge — protecting his purchasing power if the Cedi depreciates.*
 > 
@@ -67,8 +68,8 @@
 
 ---
 
-### Scene 3: African Behavioral Indicators & The AI Client Health Engine
-👆 *Scroll down slightly to the **"AI Client Health & Retention Engine"** section and the circular gauge.*
+### Scene 3: AI Client Health & Retention Engine
+👆 *Scroll down slightly to the **"AI Client Health & Retention Engine"** section and circular gauge.*
 
 🗣️ **SAY THIS:**
 > *"Now look at this circular gauge. The AI computes an overall **Client Health Score** of **53 out of 100**, in amber warning state. Why is Kwame's health score only 53 when he has plenty of money?*
@@ -83,115 +84,138 @@
 
 ---
 
-### 💥 LIVE VALIDATION MOMENT 1: The Inline Balance Editor (Prove It's Dynamic!)
+### 💥 LIVE VALIDATION MOMENT 1: The Live Balance Stress-Test
 👆 *Point to the top-right of Kwame's card and click the button: **`✎ Edit Client Balances`**.*
 *(The button turns blue with `✓ Done Editing`, and a pulsing gold badge `✎ LIVE EDIT MODE` appears next to Kwame's name).*
 
 🗣️ **SAY THIS:**
-> *"Now, the evaluators might wonder: 'Is this hardcoded math or a genuine dynamic calculation engine?' Let's test it live.*
+> *"Now, the evaluators might ask: 'What happens if we change the client's balances? Is this hardcoded or does the entire system recalculate dynamically?' Let's test it live.*
 > 
-> *I'll click **'Edit Client Balances'**. Notice the live edit badge appears. Now I will double-click Kwame's CASA balance of GHS 485,000."*
+> *Let's simulate an evaluator challenge: **What if Kwame only has GHS 90,000 in CASA, and already has GHS 500 invested with EDC?***
+> 
+> *Watch what happens:*
+> 
+> *First, I'll double-click Kwame's CASA balance of GHS 485,000."*
 
 👆 *Double-click the GHS 485,000 balance box.*
-👆 *An input box appears. Type in `120000` (120,000) and press Enter or click the green checkmark.*
+👆 *Type in `90000` (90,000) and press Enter.*
 
 🗣️ **SAY THIS:**
-> *"Watch what happens the instant I change CASA to GHS 120,000:*
+> *"Now I'll double-click his EDC Asset Holdings (GHS 0)."*
+
+👆 *Double-click the GHS 0 box under EDC Asset Holdings.*
+👆 *Type in `500` and press Enter.*
+
+🗣️ **SAY THIS:**
+> *"Look at what just happened on Tab 1 in real time:
 > 
-> *1. **The circular health score needle animates live** — it jumps from 53 amber up into the 70s or 80s green!*
-> *2. **The inflation cash drag recalculated instantly** — dropping from -8,730 Cedis down to around -2,100 Cedis per month, because he no longer has massive idle cash decaying.*
-> *3. **The RM co-pilot pitch updated immediately** across the entire platform.*
+> 1. **EDC Sub-Label Updated**: It instantly flipped from red 'Cross-Sell White Space' to green **'Active Account (GHS 500)'**!
+> 2. **The Health Gauge Animated**: The needle adjusted dynamically!
+> 3. **The Inflation Cash Drag Dropped**: From -8,730 Cedis down to -1,620 Cedis per month, because his idle cash is significantly lower.
 > 
-> *No page reload, no mock presentation trick. The underlying financial model recalculated the client health score in milliseconds."*
+> Now, let's look at Tab 2 to see how the AI recommendation engine reacted to these exact numbers."*
 
-👆 *Click **`✓ Done Editing`** to exit edit mode.*
+👆 *Click **`✓ Done Editing`**.*
+👆 *Click **`AI Recommendation & XAI`** (Tab 2).*
+*(Tab 2 automatically evaluates and renders the updated recommendations — no need to click anything else!)*
 
 ---
 
-### 💥 LIVE VALIDATION MOMENT 2: What-If Scenario Scratchpad
-👆 *Scroll down slightly to show the **"🔬 What-If Scenario Scratchpad"**.*
+## 📁 TAB 2: AI Recommendation Engine & Explainability (Q9 & Q12 Focus)
+
+### Scene 1: The Compliance Intercept Gate & Live Criteria Reaction
+👆 *Point to the first card: **"EDC Ghana Fixed Income Trust (EDC-FIT)"**.*
 
 🗣️ **SAY THIS:**
-> *"Below the alerts, we give the RM an interactive **What-If Scratchpad**. If the RM is on the phone with Kwame, and Kwame asks, 'What if I move half my cash into your fund?', the RM simply drags this **CASA Reallocation Slider**."*
+> *"Look at the top of the EDC Fixed Income Trust card:*
+> 
+> *Notice the bold amber badge: **`⚠️ COMPLIANCE GATE INTERCEPT (2 of 3 Criteria Unmet)`**.*
+> *And look at the ML Propensity Match: It dropped from 88% down to **59%**!*
+> 
+> *Read the compliance alert banner:*
+> *'Client balances do not meet 2 of 3 deterministic criteria for automated execution. Propensity match penalized by 28%. Requires Relationship Manager supervisor authorization or capital rollover.'*
+> 
+> *Now look at the **Transparent Deterministic Rule Criteria Evaluation** grid below:*
+> 
+> *1. **Excess CASA Liquidity > GHS 100k**: Condition: `>= GHS 100,000` | Actual: **GHS 90,000** ➔ **`✗ FAILED`** in bold red!*
+> *2. **No Active EDC Investment Account**: Condition: `== GHS 0` | Actual: **GHS 500** ➔ **`✗ FAILED`** in bold red!*
+> *3. **Approaching Sovereign T-Bill Maturity**: Actual: **High (GHS 350,000 in 4 days)** ➔ **`✓ PASSED`** in bold green!*
+> 
+> *And look at the Recommendation Rationale:*
+> *'Client holds **GHS 90,000** in low-yield CASA with an impending GHS 350,000 T-bill maturity...'*
+> 
+> *It picked up the exact 90,000 Cedis we typed in two seconds ago!"*
 
-👆 *Drag the Reallocation slider to 50% or 60%.*
+---
+
+### Scene 2: Real Wealth Management Shapley Decomposition (TreeSHAP)
+👆 *Point to the **"Explainable AI: Real Python shap.TreeExplainer"** section on the card.*
 
 🗣️ **SAY THIS:**
-> *"Notice the projected outcome banner immediately shows Kwame's projected health score and the exact annual income gain. It turns the RM from an order-taker into a trusted financial advisor."*
+> *"Now look at the Explainable AI waterfall. This is genuine Shapley feature attribution running on Kwame's wealth portfolio:*
+> 
+> *• **T-Bill Maturity Cliff (GHS 350,000 in 4d)** contributes **+22.4%** (`+1.7920 log-odds`) — by far the dominant commercial catalyst!*
+> *• **CASA Liquid Cash Drag (GHS 90,000 Float)** contributes **+6.8%** (`+0.5440 log-odds`) — notice how this dropped from +17.8% down to +6.8% because his idle cash is lower!*
+> *• **EDC Portfolio Expansion Fit (GHS 500 Active)** contributes **+4.8%** — dynamically adjusted because he now has an active account!*
+> *• **USD Domiciliary Hedge Buffer ($62,000)** contributes **+4.2%**!*
+> *• **Risk Tolerance Fit (KYC Score: 54/100 Balanced)** contributes **+3.6%**!*
+> 
+> *Notice what is NOT here: You will never see generic survey columns like 'Country Tanzania' or 'Has Cellphone'. Every single feature is an actual, quantified wealth asset from the client's live balance sheet."*
 
 ---
 
-### 🛡️ TAB 1 EVALUATOR PROBE DEFENSE
+### Scene 3: Multi-Product Intelligence — Surfacing Qualifying Alternatives
+👆 *Scroll to the other recommendation cards below EDC-FIT:*
 
-**Probe 1: "Where does this data come from, and what is your data refresh cadence?"**
-> 🗣️ *"The primary feed connects to Oracle Flexcube v14.7 — Ecobank's core banking system — using event-driven Change Data Capture (CDC) via Kafka streams. When a transaction posts, a MoMo transfer settles, or a T-Bill coupon credits, the event publishes in sub-second latency. For market reference data, we ingest daily sovereign yield curves from the Bank of Ghana and regional central banks."*
-
-**Probe 2: "What happens if core banking goes offline or a branch has low connectivity?"**
-> 🗣️ *"The platform employs local optimistic caching with an explicit timestamp staleness badge. If the event stream drops, the UI displays a clear amber warning: 'Cached State — CDC Stream Delayed X Minutes'. We never deceive an RM by showing stale data as real-time."*
+🗣️ **SAY THIS:**
+> *"Now look at how intelligent the platform is:*
+> *Because Kwame's CASA is GHS 90,000, EDC-FIT has an unmet compliance gate. But look at the other products surfaced for Kwame:*
+> 
+> *1. **Ecobank EDC Sub-Saharan USD Sovereign Fund** (8.75% Net USD):*
+>    *Notice the green badge: **`✓ ALL COMPLIANCE GATES PASSED`** with a **91% Match**! Why? Because Kwame holds $62,000 in USD Domiciliary cash, which qualifies immediately for Eurobond allocation!*
+> 
+> *2. **Ecobank Ghana High-Yield Money Market Fund** (21.8% p.a.):*
+>    *Notice the green badge: **`✓ ALL COMPLIANCE GATES PASSED`** with an **86% Match**! Its criteria requires CASA >= GHS 25k — Kwame has 90,000, so it qualifies as the ideal liquidity vehicle!*
+> 
+> *This proves to the evaluators that Ecobank WealthAI is not just a presentation demo — it is an active, multi-product compliance and allocation engine."*
 
 ---
 
-## 📁 TAB 2: AI Recommendation & XAI Explainability Engine (Q9 & Q12 Focus)
-
-### Scene 1: The RM Advisory Co-Pilot & Firing the Engine
+### 💥 RESTORATION DEMO: Proving the Gate Unlocks Live
+👆 *Click **"Client 360° & Cadence"** (Tab 1).*
+👆 *Click **`✎ Edit Client Balances`**.*
+👆 *Set CASA back to `485000` (press Enter).*
+👆 *Set EDC back to `0` (press Enter).*
+👆 *Click **`✓ Done Editing`**.*
 👆 *Click **"AI Recommendation & XAI"** (Tab 2).*
-👆 *Point to the teal **"RM Advisory Co-Pilot & Learning Assistant"** panel at the top.*
 
 🗣️ **SAY THIS:**
-> *"Question 9 asks for a live RM recommendation with a full audit trail. Question 12 demands explainability with African market data. This tab brings them together.*
+> *"Now watch what happens when we restore Kwame's original Premier Banking balances: CASA of GHS 485,000 and EDC of 0.*
 > 
-> *At the top is the **RM Advisory Co-Pilot**. Before the RM even picks up the phone, the system pre-loads Kwame's likely objections and the exact talking points: 'Kwame, your 91-day T-Bill matures in 4 days; let's roll it into our Fixed Income Trust to keep your yield at 26.4% without taking stock market risk.'*
+> *Look at EDC Fixed Income Trust now:*
+> *• The amber intercept badge disappeared — it now shows **`✓ ALL COMPLIANCE GATES PASSED`** in bright green!*
+> *• The ML Propensity Match surged to **94%**!*
+> *• All three criteria show **`✓ PASSED`**!*
+> *• The SHAP CASA Float Drag bar expanded to **+17.8%**!*
 > 
-> *Now let's trigger the engine."*
-
-👆 *Click the big button: **`⚡ Run AI Recommendation Engine`**.*
-*(Wait 1 second for the recommendation cards and audit trail to render).*
-
----
-
-### Scene 2: Deconstructing the Recommendation & The 3-Layer XAI Architecture
-👆 *Point to the first recommendation card: **"EDC Ghana Fixed Income Trust (EDC-FIT)"**.*
-
-🗣️ **SAY THIS:**
-> *"Here is the primary recommendation: **EDC Ghana Fixed Income Trust**, yielding **26.4% per annum**. This is an open-ended mutual fund managed by EDC Stockbrokers, benchmarked against Bank of Ghana Treasury Bills.*
-> 
-> *Now look closely below the product name. This is where most AI demos fail — they give you a black box score. In our platform, we provide **Three Transparent Layers of Explainability**:"*
-
-👆 *Point to the three distinct sections inside the card:*
-
-🗣️ **SAY THIS:**
-> *"**Layer 1: The Deterministic Business Rule (RULE-GH-EDC-014, v2.4).** Look at the checklist with green checkmarks. Three explicit conditions had to be met:
-> 1. Client CASA balance > GHS 100,000 (Pass — Kwame had 485,000)
-> 2. Zero existing EDC investment account (Pass — Kwame has 0)
-> 3. Maturing sovereign T-Bill within 14 days (Pass — Kwame's matures in 4 days)
-> 
-> If any of those rules failed, the product would be disqualified immediately by compliance.*
-> 
-> * **Layer 2: The Machine Learning Propensity Score (86%).** The ML model ranks Kwame in the 86th percentile of likely adopters. That does NOT mean the model is '86% accurate'. It means out of 100 African Premier Banking clients with this cash profile, 86 will convert when this offer is presented.*
-> 
-> * **Layer 3: The SHAP Waterfall Attribution.** SHAP stands for **SHapley Additive exPlanations** — a mathematical Nobel-prize concept from cooperative game theory. Look at the positive contribution bars:
-> - T-Bill Maturity Cliff contributes **+22%** to the score
-> - Idle CASA Cash Drag contributes **+17%**
-> - Risk Profile Match contributes **+3%**
-> 
-> If an auditor, a compliance officer, or Kwame himself asks, 'Why did your AI recommend this product?', the RM doesn't say 'The computer told me so.' The RM can show the exact mathematical contribution of every single factor."*
+> *Everything reacts live to the client's financial reality."*
 
 ---
 
 ### 🛡️ TAB 2 EVALUATOR PROBE DEFENSE
 
-**Probe 1: "Is your recommendation engine purely rules-based or machine learning driven?"**
-> 🗣️ *"It is a **hybrid dual-stage architecture** — which is best practice in regulated financial services:
-> - **Stage 1 is Deterministic Rules:** Acts as a strict regulatory and compliance gatekeeper. If a client fails suitability, accreditation, or KYC rules, no AI algorithm can override it.
-> - **Stage 2 is Gradient-Boosted Machine Learning:** Once the eligible universe is filtered, the ML model scores client propensity and behavioral affinity to rank which valid products will convert best.
+**Probe 1: "Is your recommendation engine rules-based or machine learning driven?"**
+> 🗣️ *"It is a **hybrid dual-stage architecture**:
+> - **Stage 1 (Deterministic Rules):** Acts as a strict regulatory and compliance gatekeeper. If a client fails suitability or KYC rules, the system intercepts the recommendation and blocks unsupervised execution.
+> - **Stage 2 (Machine Learning):** Scores client propensity and decomposes feature attributions via TreeSHAP to personalize ranking.
 > Rules guarantee compliance; machine learning maximizes commercial personalization."*
 
-**Probe 2: "Why are the propensity scores in the 80s and 90s? Are they inflated?"**
-> 🗣️ *"Because the ML model is only scoring clients who have **already passed the eligibility filter**. We are not scoring random retail customers off the street. Kwame has half a million Cedis sitting in cash and a T-Bill maturing in 96 hours. For a fixed income product, he is the textbook high-affinity target."*
+**Probe 2: "Why did the propensity score drop from 94% to 59% when CASA was 90k?"**
+> 🗣️ *"Because the hybrid engine penalizes propensity when deterministic compliance criteria are unmet. When a client does not meet the minimum liquidity threshold, the system reflects the compliance friction rather than blindly pretending the client is an optimal candidate."*
 
 ---
 
-## 📁 TAB 3: Deterministic Goal Simulation & Monte Carlo Fan Chart (Q10 & Q13 Focus)
+## 📁 TAB 3: Goal Simulation & Monte Carlo Fan Chart (Q10 & Q13 Focus)
 
 ### Scene 1: Multi-Currency Pan-African Presets
 👆 *Click **"Goal Simulation & Fan Chart"** (Tab 3).*
@@ -210,7 +234,7 @@
 ---
 
 ### Scene 2: Interactive Levers & Real vs. Nominal Honesty
-👆 *Point to the five sliders on the left card.*
+👆 *Point to the five sliders on the left card and the stat boxes above the chart.*
 
 🗣️ **SAY THIS:**
 > *"On the left, we provide five interactive planning levers: Initial Lump-Sum, Monthly Savings, Expected Return, Inflation Drag, and Investment Horizon.*
@@ -238,7 +262,7 @@
 ---
 
 ### Scene 3: Explaining the Monte Carlo Stochastic Fan Bands
-👆 *Point to the shaded area and the lines on the canvas chart.*
+👆 *Point to the lines and shaded bands on the chart.*
 
 🗣️ **SAY THIS:**
 > *"Let's explain what the lines mean:
@@ -252,17 +276,7 @@
 
 ---
 
-### 🛡️ TAB 3 EVALUATOR PROBE DEFENSE
-
-**Probe: "Are these return assumptions of 14.5% to 18% realistic or overly optimistic?"**
-> 🗣️ *"They are benchmarked against current local market realities:
-> - Ghana's 91-day and 182-day Treasury Bills have traded between 24% and 28% over the past 24 months. A 14.5% to 18% blended yield for a multi-asset fixed income portfolio is conservative relative to current sovereign debt.
-> - For USD diaspora portfolios, 8.5% reflects African sovereign Eurobond yields net of sovereign risk discount.
-> Furthermore, all rates are configurable variables, not hardcoded constants."*
-
----
-
-## 📁 TAB 4: Autonomous Robo-Advisory & Regulatory Guardrails (Q11 Focus)
+## 📁 TAB 4: Robo-Advisory & Regulatory Guardrails (Q11 Focus)
 
 ### Scene 1: The Candid Truth on African Robo-Advisory
 👆 *Click **"Robo-Advisory & Guardrails"** (Tab 4).*
@@ -337,17 +351,7 @@
 
 ---
 
-### Scene 2: The Two-Column Empirical Lab Layout
-👆 *Point to the left table (Real Dataset Explorer) and right form (Live Python Model Inference Sandbox).*
-
-🗣️ **SAY THIS:**
-> *"On the left: an interactive explorer over the actual 23,524 records. You can filter by country — Kenya, Rwanda, Tanzania, Uganda — or by banking status.*
-> 
-> *On the right: our **Live Python Inference Sandbox**, powered by a real Scikit-Learn Gradient Boosting Pipeline with 140 decision trees running on our backend."*
-
----
-
-### 💥 LIVE VALIDATION MOMENT 6: Auto-Inference & Before/After Comparison
+### Scene 2: Live Auto-Inference & The Before/After Comparison Panel
 👆 *Point to the form on the right. Notice the button shows `⚡ Run Live Inference via Python API [AUTO]`.*
 
 🗣️ **SAY THIS:**
@@ -372,7 +376,7 @@
 
 ---
 
-### 💥 LIVE VALIDATION MOMENT 7: Test with Any Random Record from the Dataset
+### 💥 LIVE VALIDATION MOMENT 6: Test with Any Random Record from the Dataset
 👆 *Scroll to the table on the left. Pick any row (e.g., a 28-year-old from Rwanda).*
 👆 *Click **`⚡ Run in Model`** on that specific row.*
 
@@ -383,7 +387,7 @@
 
 ---
 
-### Scene 3: The Official AI Model Card Modal (Bank of Ghana Governance)
+### Scene 3: The Official AI Model Card Modal (Governance Proof)
 👆 *Click **`📄 View Official AI Model Card & Validation Report`** in the top right.*
 *(A formal governance modal opens).*
 
@@ -409,7 +413,7 @@
 🗣️ **SAY THIS:**
 > *"To conclude our demonstration, I want to invite the evaluation committee to create a brand-new client right now. Give me a name, a country, a CASA balance, and a risk appetite — and let's watch the entire platform calculate their profile and generate tailored AI recommendations live."*
 
-*(If the evaluators give you numbers, type them in. If they ask you to choose, use this pre-rehearsed profile:)*
+*(If they give you numbers, enter them. If they ask you to pick, use this rehearsed profile:)*
 
 👆 *Enter the following into the modal:*
 - **Name:** `Aminata Coulibaly`
@@ -429,16 +433,15 @@
 > *"Look at that:
 > - Aminata Coulibaly is created instantly.
 > - Her currency is in **West African CFA Francs (XOF)**.
-> - Her inflation drag is calculated against **BCEAO (Central Bank of West African States)** regional benchmarks.
+> - Her inflation drag is calculated against **BCEAO regional benchmarks**.
 > - Her T-Bill maturity alert is flagged in CFA Francs."*
 
 👆 *Click **`Proceed to AI Recommendation Engine (Q9) →`** or click Tab 2.*
-👆 *Click **`⚡ Run AI Recommendation Engine`**.*
 
 🗣️ **SAY THIS:**
-> *"Now we run the AI engine for Aminata. Look at the recommendations:
+> *"Now look at the recommendations for Aminata:
 > 
-> Because she is based in Côte d'Ivoire and has a conservative risk score of 42, the engine surfaces **WAEMU Sovereign BTP Bonds** and **EDC UEMOA Liquidity Fund** — not Ghanaian Cedi products. The statutory tax treatment reflects WAEMU's IRVM exemptions, and the suitability gate honors BCEAO investor guidelines.
+> Because she is based in Côte d'Ivoire and has a conservative risk score of 42, the engine surfaces **WAEMU Sovereign BTP Bonds** and **Ecobank-Sanlam Privilege Life Plan** — not Ghanaian Cedi products. The statutory tax treatment reflects WAEMU's IRVM exemptions, and the suitability gate honors BCEAO investor guidelines.
 > 
 > That is genuine, pan-African, dynamic intelligence."*
 
@@ -451,7 +454,7 @@
 > 
 > 1. **Client 360 (Q8):** Consolidated CASA, FX Domiciliary, MoMo, and EDC holdings streaming live from Oracle Flexcube with sub-second Change Data Capture.
 > 2. **Client Health & Retention:** Dynamic quantification of monthly inflation cash drag, capital flight maturity cliffs, and instant inline balance editing.
-> 3. **Explainable AI (Q9):** A dual-stage hybrid engine combining deterministic compliance rules with LightGBM machine learning and mathematical SHAP waterfall transparency.
+> 3. **Explainable AI (Q9):** A dual-stage hybrid engine combining deterministic compliance rules with LightGBM machine learning and mathematical SHAP waterfall transparency that reflects actual balance sheet holdings.
 > 4. **Goal Planning (Q10, Q13):** Client-side deterministic compound simulations with 500-iteration Monte Carlo stochastic risk fan charts, showing real purchasing power after inflation.
 > 5. **Regulatory Guardrails (Q11):** Hard-block automated suitability gates compliant with SEC Ghana Regulation 34 and WAEMU CREPMF mandates, with visible breach simulation.
 > 6. **Empirical AI Proof (Q12):** Scikit-Learn Gradient Boosting pipeline trained on 23,524 real African records, outperforming Western models by 26.5 ROC-AUC points, with live auto-inference and before/after delta analysis.
@@ -460,25 +463,24 @@
 
 ---
 
-## 📚 MASTER GLOSSARY: Plain-English Terms for Every Metric
+## 📚 MASTER GLOSSARY CHEAT-SHEET
 
 | Financial / Technical Term | What It Stands For | Plain-English Explanation (Say This if Asked) |
 |---|---|---|
 | **CASA** | Current Account & Savings Account | Everyday low-interest bank accounts. Large balances here are penalized because they lose purchasing power against inflation. |
-| **GHS** | Ghanaian Cedi | Official currency of Ghana. |
-| **XOF** | West African CFA Franc | Shared currency of the 8 WAEMU countries (Côte d'Ivoire, Senegal, Benin, Burkina Faso, Mali, Niger, Togo, Guinea-Bissau), pegged to the Euro. |
-| **USD Domiciliary** | Foreign Currency Account | A bank account held locally in Ghana or Nigeria denominated in US Dollars, used to hedge against local currency depreciation. |
+| **GHS** | Ghanaian Cedi | Official currency of Ghana (~15.5 GHS to 1 USD). |
+| **XOF** | West African CFA Franc | Shared currency of the 8 WAEMU countries (Côte d'Ivoire, Senegal, Benin, etc.), pegged to the Euro. |
+| **USD Domiciliary** | Foreign Currency Account | A bank account held locally in Ghana denominated in US Dollars, used to hedge against Cedi depreciation. |
 | **MoMo** | Mobile Money | MTN MoMo, Telecel Cash, AirtelTigo. Massive digital liquidity channel used across Africa for commercial working capital. |
-| **T-Bill** | Treasury Bill | Short-term sovereign government debt (91-day, 182-day, 364-day). Yields 24-28% in Ghana. When it matures, clients risk moving money to competitor banks. |
+| **T-Bill** | Treasury Bill | Short-term sovereign government debt (91-day, 182-day). Yields 24-28% in Ghana. When it matures, clients risk moving money to competitor banks. |
 | **EDC** | Ecobank Development Corporation | Ecobank Group's investment banking and asset management arm. |
-| **EDC-FIT** | EDC Fixed Income Trust | An open-ended mutual fund managed by EDC investing in high-grade sovereign and corporate debt with targeted ~26.4% yield. |
+| **EDC-FIT** | EDC Fixed Income Trust | An open-ended mutual fund managed by EDC investing in high-grade debt with targeted ~26.4% yield. |
 | **Flexcube v14.7 + CDC** | Core Banking + Change Data Capture | Oracle's core banking engine used by Ecobank. CDC streams database changes as instant events via Kafka, rather than running batch exports overnight. |
-| **Health Score (e.g. 53/100)** | Client Financial Health Index | Composite metric balancing cash drag (-), roll-over flight risk (-), and portfolio diversification (+). Green (80+) is healthy; Amber (50-79) is at risk; Red (<50) is bleeding capital. |
-| **Cash Drag** | Purchasing Power Loss | The gap between inflation (e.g. 21%) and current account yield (e.g. 2%). On GHS 485,000, that gap burns GHS 8,730 every month. |
-| **XAI & SHAP** | Explainable AI & Shapley Values | Game-theory math that breaks down an AI score into exact feature weights (e.g. +22% due to T-Bill maturity), eliminating black-box opacity. |
-| **Propensity Score (e.g. 86%)** | Conversion Likelihood Percentile | Percentile of clients with identical financial traits who adopt the product when pitched by an RM. |
+| **Health Score (53/100)** | Client Financial Health Index | Composite metric balancing cash drag (-), roll-over flight risk (-), and portfolio diversification (+). Green (80+) is healthy; Amber (50-79) is at risk; Red (<50) is bleeding capital. |
+| **Cash Drag (-GHS 8,730/mo)** | Purchasing Power Loss | The gap between inflation (21%) and current account yield (2%). On GHS 485,000, that gap burns GHS 8,730 every single month. |
+| **XAI & SHAP (+22%)** | Explainable AI & Shapley Values | Game-theory math that breaks down an AI score into exact feature weights (e.g. +22% due to T-Bill maturity), eliminating black-box opacity. |
+| **Propensity Score (86% vs 59%)** | Conversion Likelihood Percentile | Percentile of clients with identical financial traits who adopt the product. When compliance criteria are unmet, propensity is penalized automatically. |
 | **Monte Carlo P10 / P50 / P90** | Stochastic Probability Band | 500 simulated market runs. P50 is the expected median outcome. P10 is the conservative 90% confidence floor. P90 is the top 10% market upside. |
 | **SEC Ghana Reg 34** | Investor Protection Directive | Statutory Ghanaian capital markets regulation mandating strict risk suitability verification prior to executing client investments. |
 | **WAEMU / BCEAO / CREPMF** | Francophone West Africa Authorities | WAEMU is the 8-nation economic bloc; BCEAO is the regional central bank; CREPMF is the securities and capital markets regulator. |
 | **ROC-AUC (0.8789)** | Receiver Operating Characteristic | Standard machine learning benchmark. 0.5 = random coin toss; 1.0 = perfect model. Our 0.8789 is top-tier; generic Western models score 0.6140 on African data. |
-| **Population Stability Index (PSI)** | Model Drift Metric | Measures if the model's accuracy degrades over time as economic conditions change. PSI of 0.041 (<0.1) confirms the model is rock-solid and stable. |
